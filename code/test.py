@@ -4,32 +4,33 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+from collections import Counter
 import math
 
 # File path to the json data
 file_path = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\updated_data.json"
 acc_record = []
-def bmr_and_tdee(weight,high,age,sex,workout):
+
+def bmr_and_tdee(weight, high, age, sex, workout):
     match workout.lower():
-        case "no" : factor = 1.2
-        case "light" : factor = 1.375
-        case "normal" : factor = 1.55
-        case "active" : factor = 1.725
-        case "high" : factor = 1.9
-        case "" : print("workout value error")
-    
+        case "no": factor = 1.2
+        case "light": factor = 1.375
+        case "normal": factor = 1.55
+        case "active": factor = 1.725
+        case "high": factor = 1.9
+        case "": print("workout value error")
+
     if sex == "ช.":
-        bmr = 88.362 + (13.397 * weight) + (4.799 * high) - (5.677 * age)    
+        bmr = 88.362 + (13.397 * weight) + (4.799 * high) - (5.677 * age)
     if sex == "ญ.":
         bmr = 447.593 + (9.247 * weight) + (3.098 * high) - (4.33 * age)
     return bmr
 
-
-def bri(wrist,heigh):
-    if wrist/heigh > 1:
+def bri(wrist, heigh):
+    if wrist / heigh > 1:
         print("value error : BRI ratio must be less or equal to 1")
-    bri = 364.2 - (365.5*(math.sqrt(1-((wrist/heigh)**2))))
+    bri = 364.2 - (365.5 * (math.sqrt(1 - ((wrist / heigh) ** 2))))
     return bri
 
 def age_cap(age):
@@ -38,20 +39,16 @@ def age_cap(age):
     if age < 12:
         age = 12
     return age
-    
-# Load JSON data
+
 def load_data(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-# Function to calculate BMI
 def calculate_bmi(weight, height):
     height_m = height / 100
     return round(weight / (height_m ** 2), 2)
 
-# Function to classify BMI
 def classify_bmi(bmi, age, gender):
-    # Define BMI thresholds for boys and girls
     bmi_thresholds = {
         'ช.': {
             12: (21.9, 26.0),
@@ -73,14 +70,10 @@ def classify_bmi(bmi, age, gender):
         }
     }
 
-
     age = age_cap(age)
     age = int(age)
-
-    # Get the thresholds for the specified gender and age
     overweight_threshold, obesity_threshold = bmi_thresholds[gender][age]
 
-    # Classify BMI
     if bmi < 18.5:
         return "Underweight", (bmi / 35) * 100
     elif bmi < overweight_threshold:
@@ -90,7 +83,6 @@ def classify_bmi(bmi, age, gender):
     else:
         return "Obese", (bmi / 35) * 100
 
-# Prepare dataset with additional features
 def prepare_data(students):
     X, y = [], []
     for student in students:
@@ -98,22 +90,20 @@ def prepare_data(students):
             weight = float(student["น้ำหนัก"])
             height = float(student["ส่วนสูง"])
             age = int(student["อายุ(ปี)"]) + (int(student["อายุ(เดือน)"]) / 12)
-            daily_calories = student.get("เเคลอรี่ต่อวัน", 0)  # Fixed from previous error
+            daily_calories = student.get("เเคลอรี่ต่อวัน", 0)
             sleep_hours = student.get("ชั่วโมงการนอน", 0)
             exercise_minutes = student.get("เวลาออกกำลังกาย(นาที)", 0)
             gender = student.get("เพศ", "")
-            
+
             bmi = calculate_bmi(weight, height)
             label, bmi_percentage = classify_bmi(bmi, age, gender)
-            
-            # Updated feature list as requested
+
             X.append([bmi, age, height, weight, daily_calories, sleep_hours, exercise_minutes])
             y.append(label)
         except (ValueError, KeyError) as e:
             print(f"Error processing student data: {e}")
     return np.array(X), np.array(y)
 
-# Train and optimize model with training progress
 def train_model(X_train, y_train, X_test, y_test):
     encoder = LabelEncoder()
     y_train_encoded = encoder.fit_transform(y_train)
@@ -123,25 +113,58 @@ def train_model(X_train, y_train, X_test, y_test):
     best_accuracy = 0
     for max_iter in [500, 1000, 1500, 2000, 2500, 3000]:
         print(f"\nTraining Logistic Regression Model with max_iter={max_iter}...\n")
-        model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=max_iter, verbose=0)  # Enable progress
+        model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=max_iter, verbose=0, class_weight='balanced')
         model.fit(X_train, y_train_encoded)
-        
         acc = accuracy_score(y_test_encoded, model.predict(X_test))
         acc_record.append(acc)
         print(f"Accuracy after {max_iter} iterations: {acc:.2%}")
-        
+
         if acc > best_accuracy:
             best_accuracy = acc
             best_model = model
-            
+
         if acc >= 1:
             break
-    
+
     np.set_printoptions(formatter={'float': '{: .5f}'.format})
     print(f"\nFinal Model Accuracy: {best_accuracy:.2%}")
     print("Intercepts:", best_model.intercept_)
     print("Coefficients:", best_model.coef_)
-    return best_model, encoder, best_model.intercept_ , best_model.coef_
+
+    # Confusion Matrix and Classification Report
+    final_preds = best_model.predict(X_test)
+    final_labels = encoder.inverse_transform(final_preds)
+
+    print("\nClassification Report:")
+    print(classification_report(y_test, final_labels))
+
+    cm = confusion_matrix(y_test, final_labels, labels=encoder.classes_)
+
+    # Plot confusion matrix using matplotlib instead of seaborn
+    plt.figure(figsize=(8, 6))
+    plt.imshow(cm, interpolation='nearest', cmap=plt.cm.YlGnBu)
+    plt.title("Confusion Matrix")
+    plt.colorbar()
+    
+    # Add labels and numbers to the plot
+    tick_marks = np.arange(len(encoder.classes_))
+    plt.xticks(tick_marks, encoder.classes_, rotation=45)
+    plt.yticks(tick_marks, encoder.classes_)
+    
+    # Add text annotations to the plot
+    thresh = cm.max() / 2.
+    for i in range(cm.shape[0]):
+        for j in range(cm.shape[1]):
+            plt.text(j, i, format(cm[i, j], 'd'),
+                     ha="center", va="center",
+                     color="white" if cm[i, j] > thresh else "black")
+    
+    plt.xlabel("Predicted Label")
+    plt.ylabel("True Label")
+    plt.tight_layout()
+    plt.show()
+
+    return best_model, encoder, best_model.intercept_, best_model.coef_
 
 def predict_bmi_category(model, encoder, weight, height, age, daily_calories, sleep_hours, exercise_minutes, gender):
     bmi = calculate_bmi(weight, height)
@@ -165,7 +188,7 @@ def plot_predictions(model, encoder, X_test, y_test, x_variable, intercepts, coe
         'sleep_hours': 5,
         'exercise_minutes': 6
     }
-    
+
     x_column_index = x_variable_mapping.get(x_variable)
     if x_column_index is None:
         print("Invalid selection for Y-axis variable.")
@@ -173,28 +196,21 @@ def plot_predictions(model, encoder, X_test, y_test, x_variable, intercepts, coe
 
     plt.figure(figsize=(10, 6))
 
-    # Plot data points (Swapped X and Y axes)
     for i in range(len(X_test)):
-        plt.scatter(X_test[i][1], X_test[i][x_column_index], color=colors[y_pred_labels[i]], 
+        plt.scatter(X_test[i][1], X_test[i][x_column_index], color=colors[y_pred_labels[i]],
                     label=y_pred_labels[i] if y_pred_labels[i] not in colors else "")
 
-    plt.xlabel('Age (Years)')  # X-axis is now Age
-    plt.ylabel(x_variable.replace('_', ' ').title())  # Y-axis is now the selected variable
+    plt.xlabel('Age (Years)')
+    plt.ylabel(x_variable.replace('_', ' ').title())
     plt.title(f"BMI Classification by {x_variable.replace('_', ' ').title()} and Age")
 
-    # Set fixed ranges for X and Y axes
-    x_min, x_max = min(X_test[:, 1]), max(X_test[:, 1])  # Age is now X-axis
-    y_min, y_max = min(X_test[:, x_column_index]), max(X_test[:, x_column_index])  # X-variable is now Y-axis
+    x_min, x_max = min(X_test[:, 1]), max(X_test[:, 1])
+    y_min, y_max = min(X_test[:, x_column_index]), max(X_test[:, x_column_index])
 
     plt.xlim(x_min - 2, x_max + 2)
     plt.ylim(y_min - 2, y_max + 2)
+    y_range = np.linspace(y_min, y_max, 100)
 
-    # Generate decision boundary (Swapped X and Y axes)
-    y_range = np.linspace(y_min, y_max, 100)  # Now iterate over Y-axis instead of X
-
-    custom_pairs = [(3, 0), (0, 2), (2, 1)]  # Custom class pairs
-
-    # Create legend without duplicates
     handles, labels = plt.gca().get_legend_handles_labels()
     by_label = dict(zip(labels, handles))
     plt.legend(by_label.values(), by_label.keys())
@@ -202,18 +218,30 @@ def plot_predictions(model, encoder, X_test, y_test, x_variable, intercepts, coe
     plt.grid(True, linestyle='--', alpha=0.7)
     plt.show()
 
-
-
 # Main execution
 if __name__ == "__main__":
     students_data = load_data(file_path)
     X, y = prepare_data(students_data)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    model, encoder, intercept_value , coef_value = train_model(X_train, y_train, X_test, y_test)
+
+    # Class imbalance visual
+    class_counts = Counter(y_train)
+    print("\nClass Distribution in Training Set:")
+    for label, count in class_counts.items():
+        print(f"{label}: {count} samples")
+
+    plt.figure(figsize=(8, 5))
+    plt.bar(class_counts.keys(), class_counts.values(), color='skyblue')
+    plt.xlabel("BMI Category")
+    plt.ylabel("Number of Samples")
+    plt.title("Class Distribution in Training Data")
+    plt.tight_layout()
+    plt.show()
+
+    model, encoder, intercept_value, coef_value = train_model(X_train, y_train, X_test, y_test)
     print(f"Accuracy of each training iteration is : {acc_record}")
 
     while True:
-        # User input for X-axis variable
         print("\nSelect X-axis variable for plotting (Age will be on Y-axis):")
         print("1. BMI")
         print("2. Height")
@@ -222,13 +250,13 @@ if __name__ == "__main__":
         print("5. Sleep Hours")
         print("6. Exercise Minutes")
         print("Q. Quit plotting")
-        
+
         choice = input("Enter your choice: ").strip().lower()
-        
+
         if choice == 'q':
             print("Exiting plotting mode.")
             break
-            
+
         x_variable_map = {
             '1': 'bmi',
             '2': 'height',
@@ -237,16 +265,14 @@ if __name__ == "__main__":
             '5': 'sleep_hours',
             '6': 'exercise_minutes'
         }
-        
+
         x_variable = x_variable_map.get(choice)
         if x_variable:
-            plot_predictions(model, encoder, X_test, y_test, x_variable, intercept_value , coef_value)
+            plot_predictions(model, encoder, X_test, y_test, x_variable, intercept_value, coef_value)
         else:
             print("Invalid choice. Please try again.")
-    
-    # Example prediction with new features
-    print("\nMaking an example prediction:")
-    example_prediction = predict_bmi_category(model, encoder, weight=67, height=168, age=12.67, daily_calories=3140, sleep_hours=6.4, exercise_minutes=33, gender='ช.')
-    # print("Example Prediction:", example_prediction)
 
-    
+    # Example prediction
+    print("\nMaking an example prediction:")
+    example_prediction = predict_bmi_category(model, encoder, weight=67, height=168, age=12.67,daily_calories=3140, sleep_hours=6.4,exercise_minutes=33, gender='ช.')
+    print("Example Prediction:", example_prediction)
