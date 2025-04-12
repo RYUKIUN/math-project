@@ -113,8 +113,10 @@ def train_model(X_train, y_train, X_test, y_test):
     best_accuracy = 0
     for max_iter in [500, 1000, 1500, 2000, 2500, 3000]:
         print(f"\nTraining Logistic Regression Model with max_iter={max_iter}...\n")
-        model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=max_iter, verbose=0, class_weight='balanced')
+        model = LogisticRegression(multi_class='multinomial', solver='lbfgs',
+                                   max_iter=max_iter, verbose=0, class_weight='balanced')
         model.fit(X_train, y_train_encoded)
+
         acc = accuracy_score(y_test_encoded, model.predict(X_test))
         acc_record.append(acc)
         print(f"Accuracy after {max_iter} iterations: {acc:.2%}")
@@ -218,6 +220,90 @@ def plot_predictions(model, encoder, X_test, y_test, x_variable, intercepts, coe
     plt.grid(True, linestyle='--', alpha=0.7)
     plt.show()
 
+# New function to display test data and prediction results
+def display_test_results(model, encoder, X_test, y_test, num_samples=None):
+    """
+    Display test data alongside predictions and whether they were correct.
+    
+    Parameters:
+    - model: The trained model
+    - encoder: LabelEncoder used to transform categories
+    - X_test: Test feature data
+    - y_test: True test labels
+    - num_samples: Number of samples to display (None for all)
+    """
+    feature_names = ["BMI", "Age", "Height", "Weight", "Daily Calories", "Sleep Hours", "Exercise Minutes"]
+    
+    # Get predictions
+    y_pred = model.predict(X_test)
+    y_pred_labels = encoder.inverse_transform(y_pred)
+    
+    # Get probabilities for confidence
+    y_pred_proba = model.predict_proba(X_test)
+    confidence_scores = [round(np.max(proba) * 100, 2) for proba in y_pred_proba]
+    
+    # Create a results table
+    results = []
+    for i in range(len(X_test)):
+        correct = y_test[i] == y_pred_labels[i]
+        result = {
+            "Sample": i+1,
+            "Features": {feature_names[j]: round(X_test[i][j], 2) for j in range(len(feature_names))},
+            "True Category": y_test[i],
+            "Predicted Category": y_pred_labels[i],
+            "Confidence": confidence_scores[i],  # Fixed: Changed from "Confidence (%)" to "Confidence"
+            "Correct": "✓" if correct else "✗"
+        }
+        results.append(result)
+    
+    # Limit samples if specified
+    if num_samples and num_samples < len(results):
+        results = results[:num_samples]
+    
+    # Print results in a formatted table
+    print("\n===== TEST DATA AND PREDICTION RESULTS =====")
+    print(f"Displaying {len(results)} out of {len(X_test)} test samples")
+    print("="*80)
+    
+    for result in results:
+        print(f"Sample #{result['Sample']}:")
+        print(f"  Features:")
+        for feature, value in result['Features'].items():
+            print(f"    {feature}: {value}")
+        print(f"  True Category: {result['True Category']}")
+        print(f"  Predicted Category: {result['Predicted Category']}")
+        print(f"  Confidence: {result['Confidence']}%")  # Fixed: Using the correct key
+        print(f"  Correct Prediction: {result['Correct']}")
+        print("-"*80)
+    
+    # Calculate and display summary statistics
+    correct_predictions = sum(1 for r in results if r['True Category'] == r['Predicted Category'])
+    accuracy = correct_predictions / len(results)
+    
+    print(f"Summary for displayed samples:")
+    print(f"  Correct predictions: {correct_predictions}/{len(results)} ({accuracy:.2%})")
+    print("="*80)
+    
+    # Create a visualization of results
+    plt.figure(figsize=(12, 6))
+    
+    # Plot a horizontal bar for each sample showing correct/incorrect predictions
+    sample_nums = [r['Sample'] for r in results]
+    colors = ['green' if r['True Category'] == r['Predicted Category'] else 'red' for r in results]
+    
+    plt.barh(sample_nums, [1] * len(results), color=colors, alpha=0.6)
+    
+    # Add labels
+    for i, result in enumerate(results):
+        plt.text(0.5, result['Sample'], 
+                f"{result['True Category']} → {result['Predicted Category']} ({result['Confidence']}%)", 
+                ha='center', va='center', color='black')
+    
+    plt.yticks(sample_nums)
+    plt.title('Test Results: Green = Correct, Red = Incorrect')
+    plt.tight_layout()
+    plt.show()
+
 # Main execution
 if __name__ == "__main__":
     students_data = load_data(file_path)
@@ -240,6 +326,9 @@ if __name__ == "__main__":
 
     model, encoder, intercept_value, coef_value = train_model(X_train, y_train, X_test, y_test)
     print(f"Accuracy of each training iteration is : {acc_record}")
+    
+    # Display test results (show first 10 samples)
+    display_test_results(model, encoder, X_test, y_test, num_samples=10)
 
     while True:
         print("\nSelect X-axis variable for plotting (Age will be on Y-axis):")
@@ -249,6 +338,7 @@ if __name__ == "__main__":
         print("4. Daily Calories")
         print("5. Sleep Hours")
         print("6. Exercise Minutes")
+        print("7. View Test Results")
         print("Q. Quit plotting")
 
         choice = input("Enter your choice: ").strip().lower()
@@ -256,6 +346,15 @@ if __name__ == "__main__":
         if choice == 'q':
             print("Exiting plotting mode.")
             break
+        elif choice == '7':
+            num_samples = input("How many test samples to display (press Enter for all): ")
+            try:
+                num_samples = int(num_samples) if num_samples.strip() else None
+                display_test_results(model, encoder, X_test, y_test, num_samples=num_samples)
+            except ValueError:
+                print("Invalid number. Displaying all samples.")
+                display_test_results(model, encoder, X_test, y_test)
+            continue
 
         x_variable_map = {
             '1': 'bmi',
