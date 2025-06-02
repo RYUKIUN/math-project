@@ -70,6 +70,9 @@ def classify_bmi(bmi, age, gender):
         }
     }
 
+# new data will not have age.so,this have to convert student study level into age (might not percisely but is the best i can do /_\)
+
+
     age = age_cap(age)
     age = int(age)
     overweight_threshold, obesity_threshold = bmi_thresholds[gender][age]
@@ -98,7 +101,7 @@ def prepare_data(students):
             bmi = calculate_bmi(weight, height)
             label, bmi_percentage = classify_bmi(bmi, age, gender)
 
-            X.append([bmi, age, height, weight, daily_calories, sleep_hours, exercise_minutes])
+            X.append([age, height, weight, daily_calories, sleep_hours])
             y.append(label)
         except (ValueError, KeyError) as e:
             print(f"Error processing student data: {e}")
@@ -222,17 +225,8 @@ def plot_predictions(model, encoder, X_test, y_test, x_variable, intercepts, coe
 
 # New function to display test data and prediction results
 def display_test_results(model, encoder, X_test, y_test, num_samples=None):
-    """
-    Display test data alongside predictions and whether they were correct.
-    
-    Parameters:
-    - model: The trained model
-    - encoder: LabelEncoder used to transform categories
-    - X_test: Test feature data
-    - y_test: True test labels
-    - num_samples: Number of samples to display (None for all)
-    """
-    feature_names = ["BMI", "Age", "Height", "Weight", "Daily Calories", "Sleep Hours", "Exercise Minutes"]
+
+    feature_names = ["Age", "Height", "Weight", "Daily Calories", "Sleep Hours"]
     
     # Get predictions
     y_pred = model.predict(X_test)
@@ -328,16 +322,16 @@ if __name__ == "__main__":
     print(f"Accuracy of each training iteration is : {acc_record}")
     
     # Display test results (show first 10 samples)
-    display_test_results(model, encoder, X_test, y_test, num_samples=10)
+    display_test_results(model, encoder, X_test, y_test, num_samples=1)
 
     while True:
         print("\nSelect X-axis variable for plotting (Age will be on Y-axis):")
-        print("1. BMI")
+
         print("2. Height")
         print("3. Weight")
         print("4. Daily Calories")
         print("5. Sleep Hours")
-        print("6. Exercise Minutes")
+
         print("7. View Test Results")
         print("Q. Quit plotting")
 
@@ -357,12 +351,11 @@ if __name__ == "__main__":
             continue
 
         x_variable_map = {
-            '1': 'bmi',
             '2': 'height',
             '3': 'weight',
             '4': 'daily_calories',
             '5': 'sleep_hours',
-            '6': 'exercise_minutes'
+
         }
 
         x_variable = x_variable_map.get(choice)
