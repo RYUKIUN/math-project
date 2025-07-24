@@ -27,12 +27,6 @@ def bmr_and_tdee(weight, high, age, sex, workout):
         bmr = 447.593 + (9.247 * weight) + (3.098 * high) - (4.33 * age)
     return bmr
 
-def bri(wrist, heigh):
-    if wrist / heigh > 1:
-        print("value error : BRI ratio must be less or equal to 1")
-    bri = 364.2 - (365.5 * (math.sqrt(1 - ((wrist / heigh) ** 2))))
-    return bri
-
 def age_cap(age):
     if age > 18:
         age = 18
@@ -69,9 +63,6 @@ def classify_bmi(bmi, age, gender):
             18: (25.7, 31.6)
         }
     }
-
-# new data will not have age.so,this have to convert student study level into age (might not percisely but is the best i can do /_\)
-
 
     age = age_cap(age)
     age = int(age)
