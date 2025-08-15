@@ -1,2 +1,0 @@
-ข้อมูลตาราง bmi classify เอามาจากงานวิจัย Classification of overweight and obesity in children and adolescents ของ IOTF
-เว็บไซต์ : https://www.researchgate.net/publication/287670485_Classification_of_overweight_and_obesity_in_children_and_adolescents
