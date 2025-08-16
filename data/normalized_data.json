@@ -1,0 +1,402 @@
+[
+  {
+    "sex": 0,
+    "age": 0.48795,
+    "weight": 0.713884,
+    "height": 0.587684,
+    "active_intensity": -0.112509,
+    "sleep_per_week": 0.222585,
+    "sumw": 0.748307,
+    "class": "Normal"
+  },
+  {
+    "sex": 0,
+    "age": -1.46385,
+    "weight": 2.224125,
+    "height": 0.962801,
+    "active_intensity": -0.112509,
+    "sleep_per_week": -0.014839,
+    "sumw": 2.418348,
+    "class": "Overweight"
+  },
+  {
+    "sex": 1,
+    "age": -1.46385,
+    "weight": -0.886831,
+    "height": -1.162863,
+    "active_intensity": -0.112509,
+    "sleep_per_week": 0.934858,
+    "sumw": -0.664805,
+    "class": "Underweight"
+  },
+  {
+    "sex": 1,
+    "age": -1.46385,
+    "weight": -0.886831,
+    "height": -0.912785,
+    "active_intensity": -0.112509,
+    "sleep_per_week": 0.697434,
+    "sumw": -0.79327,
+    "class": "Underweight"
+  },
+  {
+    "sex": 0,
+    "age": -0.48795,
+    "weight": -1.026024,
+    "height": -0.787746,
+    "active_intensity": -0.112509,
+    "sleep_per_week": 0.222585,
+    "sumw": -1.050199,
+    "class": "Underweight"
+  },
+  {
+    "sex": 0,
+    "age": -0.48795,
+    "weight": 2.105811,
+    "height": 1.587996,
+    "active_intensity": -0.112509,
+    "sleep_per_week": 0.46001,
+    "sumw": 1.904489,
+    "class": "Overweight"
+  },
+  {
+    "sex": 0,
+    "age": -0.48795,
+    "weight": -0.330061,
+    "height": 1.587996,
+    "active_intensity": -0.112509,
+    "sleep_per_week": -0.370975,
+    "sumw": -0.79327,
+    "class": "Underweight"
+  },
+  {
+    "sex": 0,
+    "age": -1.46385,
+    "weight": 0.087517,
+    "height": 0.587684,
+    "active_intensity": -0.112509,
+    "sleep_per_week": -0.014839,
+    "sumw": -0.150946,
+    "class": "Normal"
+  },
+  {
+    "sex": 1,
+    "age": -1.46385,
+    "weight": -0.53885,
+    "height": -0.28759,
+    "active_intensity": -1.237597,
+    "sleep_per_week": -0.014839,
+    "sumw": -0.53634,
+    "class": "Underweight"
+  },
+  {
+    "sex": 1,
+    "age": -0.48795,
+    "weight": -0.817235,
+    "height": -0.912785,
+    "active_intensity": -1.237597,
+    "sleep_per_week": 0.222585,
+    "sumw": -0.664805,
+    "class": "Underweight"
+  },
+  {
+    "sex": 1,
+    "age": 1.46385,
+    "weight": -0.260464,
+    "height": 0.587684,
+    "active_intensity": -0.112509,
+    "sleep_per_week": -2.151657,
+    "sumw": -0.53634,
+    "class": "Underweight"
+  },
+  {
+    "sex": 1,
+    "age": 0.48795,
+    "weight": -0.817235,
+    "height": -1.412942,
+    "active_intensity": -0.112509,
+    "sleep_per_week": -1.439385,
+    "sumw": -0.407875,
+    "class": "Normal"
+  },
+  {
+    "sex": 0,
+    "age": -0.48795,
+    "weight": -0.747639,
+    "height": -1.162863,
+    "active_intensity": 1.012579,
+    "sleep_per_week": 0.222585,
+    "sumw": -0.407875,
+    "class": "Normal"
+  },
+  {
+    "sex": 1,
+    "age": 0.48795,
+    "weight": -0.817235,
+    "height": -0.787746,
+    "active_intensity": -0.112509,
+    "sleep_per_week": -0.489688,
+    "sumw": -0.79327,
+    "class": "Underweight"
+  },
+  {
+    "sex": 1,
+    "age": 0.48795,
+    "weight": 0.017921,
+    "height": -0.787746,
+    "active_intensity": 2.137667,
+    "sleep_per_week": 1.409707,
+    "sumw": 0.491378,
+    "class": "Normal"
+  },
+  {
+    "sex": 1,
+    "age": 1.46385,
+    "weight": 1.270655,
+    "height": -0.162551,
+    "active_intensity": -0.112509,
+    "sleep_per_week": 0.46001,
+    "sumw": 1.904489,
+    "class": "Overweight"
+  },
+  {
+    "sex": 0,
+    "age": -2.43975,
+    "weight": 1.897022,
+    "height": 1.337918,
+    "active_intensity": -0.112509,
+    "sleep_per_week": 1.409707,
+    "sumw": 1.776025,
+    "class": "Overweight"
+  },
+  {
+    "sex": 0,
+    "age": -0.48795,
+    "weight": -0.051675,
+    "height": 1.587996,
+    "active_intensity": 3.262755,
+    "sleep_per_week": -0.489688,
+    "sumw": -0.79327,
+    "class": "Underweight"
+  },
+  {
+    "sex": 1,
+    "age": 0.48795,
+    "weight": -0.051675,
+    "height": 0.462645,
+    "active_intensity": -1.237597,
+    "sleep_per_week": -0.489688,
+    "sumw": -0.279411,
+    "class": "Normal"
+  },
+  {
+    "sex": 1,
+    "age": 1.46385,
+    "weight": -0.53885,
+    "height": -1.162863,
+    "active_intensity": -1.237597,
+    "sleep_per_week": 0.222585,
+    "sumw": -0.150946,
+    "class": "Normal"
+  },
+  {
+    "sex": 1,
+    "age": 0.48795,
+    "weight": 0.853077,
+    "height": 0.712723,
+    "active_intensity": -1.237597,
+    "sleep_per_week": -2.151657,
+    "sumw": 0.748307,
+    "class": "Normal"
+  },
+  {
+    "sex": 1,
+    "age": 0.48795,
+    "weight": 0.713884,
+    "height": -0.787746,
+    "active_intensity": -0.112509,
+    "sleep_per_week": 1.172282,
+    "sumw": 1.519095,
+    "class": "Overweight"
+  },
+  {
+    "sex": 1,
+    "age": 1.46385,
+    "weight": -0.886831,
+    "height": -0.537668,
+    "active_intensity": -0.112509,
+    "sleep_per_week": 0.697434,
+    "sumw": -0.921734,
+    "class": "Underweight"
+  },
+  {
+    "sex": 1,
+    "age": -0.48795,
+    "weight": -0.399657,
+    "height": -0.912785,
+    "active_intensity": -0.112509,
+    "sleep_per_week": -0.370975,
+    "sumw": -0.022481,
+    "class": "Normal"
+  },
+  {
+    "sex": 0,
+    "age": -0.48795,
+    "weight": 0.713884,
+    "height": 0.962801,
+    "active_intensity": 1.012579,
+    "sleep_per_week": 0.46001,
+    "sumw": 0.491378,
+    "class": "Normal"
+  },
+  {
+    "sex": 0,
+    "age": -0.48795,
+    "weight": -0.469253,
+    "height": 0.087527,
+    "active_intensity": -1.237597,
+    "sleep_per_week": 0.934858,
+    "sumw": -0.664805,
+    "class": "Underweight"
+  },
+  {
+    "sex": 1,
+    "age": 1.46385,
+    "weight": -0.678042,
+    "height": -0.537668,
+    "active_intensity": 1.012579,
+    "sleep_per_week": 0.222585,
+    "sumw": -0.664805,
+    "class": "Underweight"
+  },
+  {
+    "sex": 1,
+    "age": -0.48795,
+    "weight": -0.53885,
+    "height": -0.662707,
+    "active_intensity": -0.112509,
+    "sleep_per_week": 0.697434,
+    "sumw": -0.407875,
+    "class": "Normal"
+  },
+  {
+    "sex": 1,
+    "age": 0.48795,
+    "weight": -1.234813,
+    "height": -0.537668,
+    "active_intensity": -1.237597,
+    "sleep_per_week": 0.697434,
+    "sumw": -1.435593,
+    "class": "Underweight"
+  },
+  {
+    "sex": 1,
+    "age": 1.46385,
+    "weight": 0.087517,
+    "height": -0.537668,
+    "active_intensity": -0.112509,
+    "sleep_per_week": -0.489688,
+    "sumw": 0.491378,
+    "class": "Normal"
+  },
+  {
+    "sex": 1,
+    "age": 0.48795,
+    "weight": -0.399657,
+    "height": 0.337606,
+    "active_intensity": 1.012579,
+    "sleep_per_week": -2.86393,
+    "sumw": -0.53634,
+    "class": "Underweight"
+  },
+  {
+    "sex": 0,
+    "age": 1.46385,
+    "weight": -0.399657,
+    "height": 0.337606,
+    "active_intensity": 1.012579,
+    "sleep_per_week": -0.014839,
+    "sumw": -0.664805,
+    "class": "Underweight"
+  },
+  {
+    "sex": 1,
+    "age": -1.46385,
+    "weight": -0.399657,
+    "height": -0.28759,
+    "active_intensity": -0.112509,
+    "sleep_per_week": -2.151657,
+    "sumw": -0.407875,
+    "class": "Normal"
+  },
+  {
+    "sex": 0,
+    "age": 0.48795,
+    "weight": 0.365903,
+    "height": 1.713035,
+    "active_intensity": 2.137667,
+    "sleep_per_week": 1.409707,
+    "sumw": -0.279411,
+    "class": "Normal"
+  },
+  {
+    "sex": 0,
+    "age": -0.48795,
+    "weight": 1.409848,
+    "height": 1.838074,
+    "active_intensity": 1.012579,
+    "sleep_per_week": -0.014839,
+    "sumw": 0.876772,
+    "class": "Normal"
+  },
+  {
+    "sex": 1,
+    "age": 0.48795,
+    "weight": 2.801774,
+    "height": 1.587996,
+    "active_intensity": -0.112509,
+    "sleep_per_week": -0.489688,
+    "sumw": 2.418348,
+    "class": "Overweight"
+  },
+  {
+    "sex": 1,
+    "age": -0.48795,
+    "weight": -0.608446,
+    "height": -0.28759,
+    "active_intensity": -0.112509,
+    "sleep_per_week": 1.409707,
+    "sumw": -0.664805,
+    "class": "Underweight"
+  },
+  {
+    "sex": 1,
+    "age": 0.48795,
+    "weight": -1.026024,
+    "height": -1.788059,
+    "active_intensity": -1.237597,
+    "sleep_per_week": -0.370975,
+    "sumw": -0.53634,
+    "class": "Underweight"
+  },
+  {
+    "sex": 1,
+    "age": 0.48795,
+    "weight": -1.165216,
+    "height": -1.162863,
+    "active_intensity": -1.237597,
+    "sleep_per_week": 0.46001,
+    "sumw": -1.178664,
+    "class": "Underweight"
+  },
+  {
+    "sex": 0,
+    "age": 0.48795,
+    "weight": 0.713884,
+    "height": 0.712723,
+    "active_intensity": -0.112509,
+    "sleep_per_week": -0.252263,
+    "sumw": 0.619842,
+    "class": "Normal"
+  }
+]

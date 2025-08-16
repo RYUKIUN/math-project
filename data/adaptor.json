@@ -1,0 +1,18 @@
+{
+  "mean": {
+    "age": 16.5,
+    "weight": 54.7425,
+    "height": 162.3,
+    "active_intensity": 2.1,
+    "sleep_per_week": 44.125,
+    "sumw": 11.175
+  },
+  "std": {
+    "age": 1.024695,
+    "weight": 14.368575,
+    "height": 7.9975,
+    "active_intensity": 0.888819,
+    "sleep_per_week": 8.423739,
+    "sumw": 7.784239
+  }
+}

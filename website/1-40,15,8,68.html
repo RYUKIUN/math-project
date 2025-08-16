@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BMI Classifier — 7 Features (with sumw)</title>
+<style>
+  :root { --pad: 14px; --radius: 14px; }
+  body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; line-height: 1.5; margin: 0; background: #f7f7fb; color: #222; }
+  .container { max-width: 1400px; margin: 32px auto; padding: 0 16px; }
+  h1 { font-size: 24px; margin: 0 0 20px; }
+  .card { background: #fff; border-radius: var(--radius); box-shadow: 0 8px 24px rgba(0,0,0,0.08); padding: var(--pad); margin-bottom: 20px; }
+  .section-title { font-size: 18px; margin: 0 0 12px; }
+  .grid { display: grid; gap: 12px; }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  label { display: block; font-weight: 600; margin-bottom: 6px; }
+  input[type="number"], select { width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #ddd; font-size: 14px; }
+  .btn { display: inline-block; padding: 12px 16px; background: #4f46e5; color: white; border: 0; border-radius: 12px; font-weight: 700; cursor: pointer; }
+  .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+  .muted { color: #666; font-size: 13px; }
+  .result { display: grid; gap: 8px; }
+  .pill { display: inline-block; padding: 4px 10px; border-radius: 999px; background: #eef2ff; color: #4338ca; font-weight: 700; font-size: 12px; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 8px; border-bottom: 1px solid #eee; vertical-align: top; }
+  th { text-align: left; background: #fafafa; }
+  .center { text-align: center; }
+  .slider-row { display: grid; grid-template-columns: 220px 1fr 100px; gap: 12px; align-items: center; }
+  input[type="range"] { width: 100%; }
+  .hidden { display: none; }
+  .small { font-size: 12px; color: #666; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+
+  /* Main three-column layout */
+  .main-layout { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>เเบบฟอร์มประเมินสุขภาพ</h1>
+
+    <div class="main-layout">
+
+      <!-- ===== Left Side: Basic Form + Sliders ===== -->
+      <div>
+        <!-- ===== Form Card (Basic Info) ===== -->
+        <div class="card">
+          <h2 class="section-title">กรอกข้อมูลเบื้องต้น</h2>
+          <form id="mainForm" autocomplete="off">
+            <div class="grid grid-3">
+              <div>
+                <label for="sex">เพศ</label>
+                <select id="sex" required>
+                  <option value="">— เลือก —</option>
+                  <option value="ชาย">ชาย</option>
+                  <option value="หญิง">หญิง</option>
+                </select>
+              </div>
+              <div>
+                <label for="age">อายุ (ปี)</label>
+                <input id="age" type="number" min="10" max="25" step="1" required />
+              </div>
+              <div>
+                <label for="height">ส่วนสูง (ซม.)</label>
+                <input id="height" type="number" min="120" max="210" step="0.1" required />
+              </div>
+              <div>
+                <label for="weight">น้ำหนัก (กก.)</label>
+                <input id="weight" type="number" min="25" max="140" step="0.1" required />
+              </div>
+              <div style="grid-column: span 3;">
+                <label>ระดับกิจกรรม (active_intensity)</label>
+                <div>
+                  <label><input type="radio" name="activeIntensity" value="0" required> นั่งทำงานอยู่กับที่</label><br>
+                  <label><input type="radio" name="activeIntensity" value="1"> ออกกำลังกายเล็กน้อย (1–3 วัน/สัปดาห์)</label><br>
+                  <label><input type="radio" name="activeIntensity" value="2"> ออกกำลังกายปานกลาง (3–5 วัน/สัปดาห์)</label><br>
+                  <label><input type="radio" name="activeIntensity" value="3"> ออกกำลังกายหนัก (6–7 วัน/สัปดาห์)</label><br>
+                  <label><input type="radio" name="activeIntensity" value="4"> ออกกำลังกายหนักมาก (ทุกวัน เช้า–เย็น)</label>
+                </div>
+              </div>          
+            </div>
+
+            <div class="grid grid-2" style="margin-top:12px;">
+              <div>
+                <label for="sleepDays">นอนครบ 8 ชั่วโมงกี่วันต่อสัปดาห์</label>
+                <input id="sleepDays" type="number" min="0" max="7" step="1" required />
+              </div>
+              <div>
+                <label for="sleepHours">วันที่นอนไม่เพียงพอ นอนกี่ชั่วโมง</label>
+                <input id="sleepHours" type="number" min="0" max="12" step="0.5" required />
+              </div>
+            </div>
+
+            <button type="submit" class="btn">คำนวณผลลัพธ์</button>
+          </form>
+        </div>
+
+        <!-- ===== Adjustment Sliders ===== -->
+        <div id="adjustCard" class="card hidden">
+          <h2 class="section-title">ปรับค่าประมาณ</h2>
+
+          <div class="grid" style="gap:16px;">
+            <div class="slider-row">
+              <div><strong>Active Intensity</strong> (0–4)</div>
+              <input id="adjActive" type="range" min="0" max="4" step="1" />
+              <div class="mono" id="adjActiveVal">—</div>
+            </div>
+            <div class="slider-row">
+              <div><strong>Sleep per Week</strong> (ชั่วโมง/สัปดาห์)</div>
+              <input id="adjSleep" type="range" min="0" max="84" step="1" />
+              <div class="mono" id="adjSleepVal">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Middle Side: Questionnaire ===== -->
+      <div>
+        <div id="sumwInitialCard" class="card">
+          <h3 class="section-title">แบบสอบถามพฤติกรรมการบริโภค (sumw)</h3>
+          <p class="muted">เลือกความถี่ของพฤติกรรมในแต่ละข้อ (0 = แทบไม่ทำ, 1 = 3–4 ครั้ง/สัปดาห์, 2 = ทุกวัน/เกือบทุกวัน)</p>
+          <table>
+            <thead>
+              <tr>
+                <th>พฤติกรรม</th>
+                <th class="center">0<br><span class="small">แทบไม่ทำ</span></th>
+                <th class="center">1<br><span class="small">3–4/สัปดาห์</span></th>
+                <th class="center">2<br><span class="small">ทุกวัน</span></th>
+              </tr>
+            </thead>
+            <tbody id="sumwInitialBody"><!-- generated --></tbody>
+          </table>
+        </div>
+
+        <div id="sumwAdjustCard" class="card hidden" style="margin-top:16px;">
+          <h3 class="section-title">ปรับคำตอบแบบสอบถาม (sumw)</h3>
+          <p class="muted">ปรับความถี่ของพฤติกรรม แล้วผลลัพธ์จะอัปเดตอัตโนมัติ</p>
+          <table>
+            <thead>
+              <tr>
+                <th>พฤติกรรม</th>
+                <th class="center">0</th>
+                <th class="center">1</th>
+                <th class="center">2</th>
+              </tr>
+            </thead>
+            <tbody id="sumwAdjustBody"><!-- generated --></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ===== Right Side: Results ===== -->
+      <div>
+        <div id="resultCard" class="card hidden">
+          <div class="result">
+            <div>
+              <span class="pill">ชั้น BMI ที่คาดการณ์</span>
+              <span id="predLabel" class="mono"></span>
+            </div>
+            <div>
+              <span class="pill">ความน่าจะเป็น (raw)</span>
+              <span id="predProb" class="mono"></span>
+            </div>
+            <div>
+              <span class="pill">Normalized Vector (JSON)</span>
+              <span id="xNorm" class="mono"></span>
+            </div>
+          </div>
+
+          <h3 style="margin-top:16px;">📊 ความน่าจะเป็นของแต่ละคลาส</h3>
+          <div id="probBars" style="margin-bottom: 12px;"></div>
+
+          <h3 style="margin-top:16px;">🔍 ข้อมูลหลังการ Normalize</h3>
+          <table style="width:100%; border-collapse: collapse;" id="normTable">
+            <thead>
+              <tr>
+                <th style="text-align:left; padding:4px;">Feature</th>
+                <th style="padding:4px;">Raw Value</th>
+                <th style="padding:4px;">Normalized</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    /** ========== Embedded Model (from your Python output) ========== **/
+    const model = {
+      features: ["sex","age","weight","height","active_intensity","sleep_per_week","sumw"],
+      bias: [0.4256549898607349, 1.3718446164113907, -1.7974996062721253],
+      coef: [
+        [ 0.018003239882278622,  0.13126284681778683, -1.1904653597710837,  0.26857088223534664,  0.1248505157010579,  -0.11430760152829768, -1.6306705758382736 ],
+        [ -0.23014472827241803,  0.018572202303487113, 0.17916826370543049, -0.1527619889950474,  0.2363493324618863,  0.3785841360483421,   0.2840689860596467 ],
+        [ 0.21214148839013963,  -0.14983504912127374, 1.0112970960656527,  -0.11580889324029967, -0.3611998481629445,  -0.19289173757664,     1.3466015897786268 ]
+      ],
+      mean: {
+        age: 16.5, weight: 54.7425, height: 162.3,
+        active_intensity: 2.1, sleep_per_week: 44.125, sumw: 11.175
+      },
+      std: {
+        age: 1.024695, weight: 14.368575, height: 7.9975,
+        active_intensity: 0.888819, sleep_per_week: 8.423739, sumw: 7.784239
+      }
+    };
+    const labels = ["Underweight","Normal","Overweight"];
+    const sexMap = { "ชาย": 0, "หญิง": 1 };
+    
+    /** ========== Sumw Questions ========== **/
+    const sumwQuestions = [
+      "1 ดื่มเครื่องดื่มที่ใส่น้ำตาล",
+      "2 ดื่มน้ำอัดลม กาแฟ 3 in 1 กาแฟเย็น กาแฟปั่น เครื่องดื่มชูกำลัง น้ำหวาน",
+      "3 ดื่มน้ำผัก ผลไม้สำเร็จรูป",
+      "4 กินไอศกรีม เบเกอรี่ หรือขนมหวานไทย",
+      "5 เติมน้ำตาล น้ำผึ้ง น้ำเชื่อม เพิ่มในอาหาร",
+      "6 เลือกกินเนื้อสัตว์ติดมัน ติดหนัง มีไขมันแทรก",
+      "7 กินอาหารทอด อาหารฟาสต์ฟู้ด อาหารกึ่งสำเร็จรูป",
+      "8 กินอาหารจานเดียว ไขมันสูงหรืออาหารประเภทแกงกะทิ",
+      "9 ดื่มเครื่องดื่มที่ผสมนม นมข้นหวาน ครีมเทียม วิปปิ้งครีม",
+      "10 ซดน้ำผัด น้ำเเกง หรือราดน้ำเเกงลงในข้าว",
+      "11 ปรุงอาหารโดยไม่ชิม,ปรุงเครื่องปรุงเยอะ",
+      "12 กินขนมที่มีโซเดียมเยอะ เช่น เลย์",
+      "13 กินเนื้อสัตว์แปรรูป ไส้กรอก หมูยอ แฮม ปลาเค็ม กุ้งแห้ง ปลาร้า",
+      "14 กินบะหมี่ โจ๊กกึ่งสำเร็จรูป หรืออาหารกล่องแช่แข็ง",
+      "15 กินผักผลไม้ดอง หรือ ผลไม้แช่อิ่ม จิ้มพริกเกลือน้ำปลาหวาน"
+    ];
+    
+    /** ========== DOM Helpers ========== **/
+    function qs(sel){ return document.querySelector(sel); }
+    function qsa(sel){ return Array.from(document.querySelectorAll(sel)); }
+    
+    /** ========== Generate Sumw Tables ========== **/
+    function generateSumwTable(tbodyEl, namePrefix, prefill=null) {
+      tbodyEl.innerHTML = "";
+      sumwQuestions.forEach((q, i) => {
+        const idx = i + 1;
+        const tr = document.createElement("tr");
+    
+        const tdQ = document.createElement("td");
+        tdQ.textContent = q;
+        tr.appendChild(tdQ);
+    
+        for (let val = 0; val <= 2; val++) {
+          const td = document.createElement("td");
+          td.className = "center";
+          const radio = document.createElement("input");
+          radio.type = "radio";
+          radio.name = `${namePrefix}${idx}`;
+          radio.value = String(val);
+          radio.required = true;
+          if (prefill && prefill[i] === val) radio.checked = true;
+          td.appendChild(radio);
+          tr.appendChild(td);
+        }
+        tbodyEl.appendChild(tr);
+      });
+    }
+    
+    /** ========== Math Helpers ========== **/
+    function normalize(value, key) {
+      if (!(key in model.mean)) return value; // for 'sex'
+      const mu = model.mean[key];
+      const sd = model.std[key];
+      if (sd === 0) return 0;
+      return (value - mu) / sd;
+    }
+    function dot(a, b) {
+      let s = 0;
+      for (let i=0;i<a.length;i++) s += a[i]*b[i];
+      return s;
+    }
+    function softmax(z) {
+      const maxZ = Math.max.apply(null, z);
+      const exps = z.map(v => Math.exp(v - maxZ));
+      const sum = exps.reduce((acc,v)=>acc+v,0);
+      return exps.map(v => v/sum);
+    }
+    
+    /** ========== Prediction ========== **/
+    function predict({ sex, age, weight, height, active_intensity, sleep_per_week, sumw }) {
+      const sexNum = sexMap[sex];
+      const x = [
+        sexNum,
+        normalize(age, "age"),
+        normalize(weight, "weight"),
+        normalize(height, "height"),
+        normalize(active_intensity, "active_intensity"),
+        normalize(sleep_per_week, "sleep_per_week"),
+        normalize(sumw, "sumw")
+      ];
+      // 3-class linear scores
+      const scores = model.coef.map((coefRow, i) => model.bias[i] + dot(coefRow, x));
+      const probs = softmax(scores);
+      const argmax = probs.indexOf(Math.max(...probs));
+      return { label: labels[argmax], probs, xNorm: x };
+    }
+    
+    /** ========== Sleep per week from day/hours (same formula you used) ========== **/
+    function sleepPerWeekFrom(day, hours) {
+      // 56 - ((day - 7) * (hour - 8))
+      // Inputs constrained via UI, but clamp just in case
+      const d = Math.max(0, Math.min(7, Number(day)));
+      const h = Math.max(0, Math.min(12, Number(hours)));
+      return 56 - ((d - 7) * (h - 8));
+    }
+    
+    /** ========== State ========== **/
+    let baseInputs = null;           // immutable after first submit: sex, age, weight, height
+    let current = null;              // live adjustable inputs
+    let currentSumwAnswers = null;   // array of 15 ints [0..2]
+    
+    /** ========== UI Bindings ========== **/
+    const form = qs("#mainForm");
+    const resultCard = qs("#resultCard");
+    const adjustCard = qs("#adjustCard");   // slider card
+    const predLabelEl = qs("#predLabel");
+    const predProbEl = qs("#predProb");
+    const xNormEl = qs("#xNorm");
+    const sumwInitialBody = qs("#sumwInitialBody");
+    const sumwAdjustBody  = qs("#sumwAdjustBody");
+    const adjActive = qs("#adjActive");
+    const adjActiveVal = qs("#adjActiveVal");
+    const adjSleep  = qs("#adjSleep");
+    const adjSleepVal = qs("#adjSleepVal");
+    const sumwInitialCard = qs("#sumwInitialCard");
+    const sumwAdjustCard  = qs("#sumwAdjustCard"); 
+
+    
+    // Generate initial questionnaire in the form
+    generateSumwTable(sumwInitialBody, "qInit");
+    
+    /** ========== Render Prediction ========== **/
+    function renderPrediction(state) {
+      const { label, probs, xNorm } = predict(state);
+      predLabelEl.textContent = label;
+      predProbEl.textContent = probs.map(p => p.toFixed(3)).join(" / ");
+      xNormEl.textContent = JSON.stringify(xNorm.map(v => Number(v.toFixed(4))));
+      // Probability bars
+    const probBarsEl = qs("#probBars");
+    probBarsEl.innerHTML = "";
+    labels.forEach((lbl, i) => {
+      const pct = (probs[i] * 100).toFixed(1);
+      const bar = document.createElement("div");
+      bar.style.background = (i === labels.indexOf(label)) ? "#4caf50" : "#ccc";
+      bar.style.height = "20px";
+      bar.style.width = pct + "%";
+      bar.style.transition = "width 0.3s ease";
+      const wrapper = document.createElement("div");
+      wrapper.style.marginBottom = "4px";
+      wrapper.textContent = `${lbl}: ${pct}%`;
+      wrapper.style.fontSize = "14px";
+      wrapper.style.fontWeight = (i === labels.indexOf(label)) ? "bold" : "normal";
+      wrapper.appendChild(bar);
+      probBarsEl.appendChild(wrapper);
+    });
+    
+    // Normalized table
+    const normTbody = qs("#normTable tbody");
+    normTbody.innerHTML = "";
+    model.features.forEach((feat, i) => {
+      const row = document.createElement("tr");
+      const tdFeat = document.createElement("td"); tdFeat.textContent = feat;
+      const tdRaw  = document.createElement("td");  tdRaw.textContent = state[feat] !== undefined ? state[feat] : "-";
+      const tdNorm = document.createElement("td");  tdNorm.textContent = xNorm[i] !== undefined ? xNorm[i].toFixed(4) : "-";
+      row.appendChild(tdFeat);
+      row.appendChild(tdRaw);
+      row.appendChild(tdNorm);
+      normTbody.appendChild(row);
+    });
+    
+      
+    }
+    
+    /** ========== Helpers to read radios and sum them ========== **/
+    function readSumwAnswers(prefix) {
+      const arr = [];
+      for (let i=1;i<=sumwQuestions.length;i++) {
+        const picked = qs(`input[name="${prefix}${i}"]:checked`);
+        if (!picked) return null; // not fully answered
+        arr.push(parseInt(picked.value,10));
+      }
+      return arr;
+    }
+    function sumOf(arr) {
+      return arr.reduce((a,b)=>a+b,0);
+    }
+    
+    /** ========== Adjustment Listeners ========== **/
+    function bindAdjustmentListeners() {
+      adjActive.addEventListener("input", () => {
+        current.active_intensity = Number(adjActive.value);
+        adjActiveVal.textContent = current.active_intensity.toFixed(0);
+        renderPrediction(current);
+      });
+      adjSleep.addEventListener("input", () => {
+        current.sleep_per_week = Number(adjSleep.value);
+        adjSleepVal.textContent = current.sleep_per_week.toFixed(0);
+        renderPrediction(current);
+      });
+      // radios in adjust table
+      sumwAdjustBody.addEventListener("change", (e) => {
+        if (e.target && e.target.type === "radio") {
+          // recompute answers
+          const arr = readSumwAnswers("qAdj");
+          if (arr) {
+            currentSumwAnswers = arr.slice();
+            current.sumw = sumOf(currentSumwAnswers);
+            renderPrediction(current);
+          }
+        }
+      });
+    }
+    
+    /** ========== Submit Handler ========== **/
+    form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+
+      // Basic inputs
+      const sex = qs("#sex").value;
+      const age = Number(qs("#age").value);
+      const height = Number(qs("#height").value);
+      const weight = Number(qs("#weight").value);
+      const active_intensity = Number(qs('input[name="activeIntensity"]:checked').value);
+
+      // Sleep inputs -> sleep_per_week
+      const sleepDays = Number(qs("#sleepDays").value);
+      const sleepHours = Number(qs("#sleepHours").value);
+      const sleep_per_week = sleepPerWeekFrom(sleepDays, sleepHours);
+
+      // Sumw from initial table
+      const initAnswers = readSumwAnswers("qInit");
+      if (!initAnswers) {
+        alert("กรุณาตอบแบบสอบถาม sumw ให้ครบทุกข้อ");
+        return;
+      }
+      const sumw = sumOf(initAnswers);
+
+      baseInputs = { sex, age, weight, height };
+      currentSumwAnswers = initAnswers.slice();
+      current = { ...baseInputs, active_intensity, sleep_per_week, sumw };
+
+      // Initial render
+      renderPrediction(current);
+
+      // Prepare Adjustment UI
+      // 1) Hide initial questionnaire section
+      sumwInitialCard.classList.add("hidden");
+
+      // 2) Set sliders to current values
+      adjActive.value = String(active_intensity);
+      adjActiveVal.textContent = active_intensity.toFixed(0);
+      adjSleep.value = String(Math.max(0, Math.min(84, Math.round(sleep_per_week))));
+      adjSleepVal.textContent = Math.round(sleep_per_week).toString();
+
+      // 3) Generate adjustment questionnaire pre-filled
+      generateSumwTable(sumwAdjustBody, "qAdj", currentSumwAnswers);
+
+      // 4) Show result + adjust (sliders) + sumwAdjust
+      resultCard.classList.remove("hidden");
+      adjustCard.classList.remove("hidden");
+      sumwAdjustCard.classList.remove("hidden");
+
+      // 5) Bind listeners once
+      bindAdjustmentListeners();
+    });
+    </script>
+</body>
+</html>

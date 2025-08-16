@@ -1,0 +1,402 @@
+[
+  {
+      "age": 17,
+      "sex": "ชาย",
+      "height": 167,
+      "weight": 65.0,
+      "active intensity": 2,
+      "day": 2,
+      "hours": 6,
+      "sumw": 17
+  },
+  {
+      "age": 15,
+      "sex": "ชาย",
+      "height": 170,
+      "weight": 86.7,
+      "active intensity": 2,
+      "day": 5,
+      "hours": 2,
+      "sumw": 30
+  },
+  {
+      "age": 15,
+      "sex": "หญิง",
+      "height": 153,
+      "weight": 42.0,
+      "active intensity": 2,
+      "day": 5,
+      "hours": 6,
+      "sumw": 6
+  },
+  {
+      "age": 15,
+      "sex": "หญิง",
+      "height": 155,
+      "weight": 42.0,
+      "active intensity": 2,
+      "day": 4,
+      "hours": 6,
+      "sumw": 5
+  },
+  {
+      "age": 16,
+      "sex": "ชาย",
+      "height": 156,
+      "weight": 40.0,
+      "active intensity": 2,
+      "day": 2,
+      "hours": 6,
+      "sumw": 3
+  },
+  {
+      "age": 16,
+      "sex": "ชาย",
+      "height": 175,
+      "weight": 85.0,
+      "active intensity": 2,
+      "day": 3,
+      "hours": 6,
+      "sumw": 26
+  },
+  {
+      "age": 16,
+      "sex": "ชาย",
+      "height": 175,
+      "weight": 50.0,
+      "active intensity": 2,
+      "day": 2,
+      "hours": 5,
+      "sumw": 5
+  },
+  {
+      "age": 15,
+      "sex": "ชาย",
+      "height": 167,
+      "weight": 56.0,
+      "active intensity": 2,
+      "day": 1,
+      "hours": 6,
+      "sumw": 10
+  },
+  {
+      "age": 15,
+      "sex": "หญิง",
+      "height": 160,
+      "weight": 47.0,
+      "active intensity": 1,
+      "day": 5,
+      "hours": 2,
+      "sumw": 7
+  },
+  {
+      "age": 16,
+      "sex": "หญิง",
+      "height": 155,
+      "weight": 43.0,
+      "active intensity": 1,
+      "day": 2,
+      "hours": 6,
+      "sumw": 6
+  },
+  {
+      "age": 18,
+      "sex": "หญิง",
+      "height": 167,
+      "weight": 51.0,
+      "active intensity": 2,
+      "day": 2,
+      "hours": 2,
+      "sumw": 7
+  },
+  {
+      "age": 17,
+      "sex": "หญิง",
+      "height": 151,
+      "weight": 43.0,
+      "active intensity": 2,
+      "day": 3,
+      "hours": 2,
+      "sumw": 8
+  },
+  {
+      "age": 16,
+      "sex": "ชาย",
+      "height": 153,
+      "weight": 44.0,
+      "active intensity": 3,
+      "day": 2,
+      "hours": 6,
+      "sumw": 8
+  },
+  {
+      "age": 17,
+      "sex": "หญิง",
+      "height": 156,
+      "weight": 43.0,
+      "active intensity": 2,
+      "day": 3,
+      "hours": 4,
+      "sumw": 5
+  },
+  {
+      "age": 17,
+      "sex": "หญิง",
+      "height": 156,
+      "weight": 55.0,
+      "active intensity": 4,
+      "day": 3,
+      "hours": 8,
+      "sumw": 15
+  },
+  {
+      "age": 18,
+      "sex": "หญิง",
+      "height": 161,
+      "weight": 73.0,
+      "active intensity": 2,
+      "day": 5,
+      "hours": 4,
+      "sumw": 26
+  },
+  {
+      "age": 14,
+      "sex": "ชาย",
+      "height": 173,
+      "weight": 82.0,
+      "active intensity": 2,
+      "day": 7,
+      "hours": 8,
+      "sumw": 25
+  },
+  {
+      "age": 16,
+      "sex": "ชาย",
+      "height": 175,
+      "weight": 54.0,
+      "active intensity": 5,
+      "day": 3,
+      "hours": 4,
+      "sumw": 5
+  },
+  {
+      "age": 17,
+      "sex": "หญิง",
+      "height": 166,
+      "weight": 54.0,
+      "active intensity": 1,
+      "day": 3,
+      "hours": 4,
+      "sumw": 9
+  },
+  {
+      "age": 18,
+      "sex": "หญิง",
+      "height": 153,
+      "weight": 47.0,
+      "active intensity": 1,
+      "day": 2,
+      "hours": 6,
+      "sumw": 10
+  },
+  {
+      "age": 17,
+      "sex": "หญิง",
+      "height": 168,
+      "weight": 67.0,
+      "active intensity": 1,
+      "day": 1,
+      "hours": 3,
+      "sumw": 17
+  },
+  {
+      "age": 17,
+      "sex": "หญิง",
+      "height": 156,
+      "weight": 65.0,
+      "active intensity": 2,
+      "day": 6,
+      "hours": 6,
+      "sumw": 23
+  },
+  {
+      "age": 18,
+      "sex": "หญิง",
+      "height": 158,
+      "weight": 42.0,
+      "active intensity": 2,
+      "day": 4,
+      "hours": 6,
+      "sumw": 4
+  },
+  {
+      "age": 16,
+      "sex": "หญิง",
+      "height": 155,
+      "weight": 49.0,
+      "active intensity": 2,
+      "day": 2,
+      "hours": 5,
+      "sumw": 11
+  },
+  {
+      "age": 16,
+      "sex": "ชาย",
+      "height": 170,
+      "weight": 65.0,
+      "active intensity": 3,
+      "day": 3,
+      "hours": 6,
+      "sumw": 15
+  },
+  {
+      "age": 16,
+      "sex": "ชาย",
+      "height": 163,
+      "weight": 48.0,
+      "active intensity": 1,
+      "day": 5,
+      "hours": 6,
+      "sumw": 6
+  },
+  {
+      "age": 18,
+      "sex": "หญิง",
+      "height": 158,
+      "weight": 45.0,
+      "active intensity": 3,
+      "day": 2,
+      "hours": 6,
+      "sumw": 6
+  },
+  {
+      "age": 16,
+      "sex": "หญิง",
+      "height": 157,
+      "weight": 47.0,
+      "active intensity": 2,
+      "day": 4,
+      "hours": 6,
+      "sumw": 8
+  },
+  {
+      "age": 17,
+      "sex": "หญิง",
+      "height": 158,
+      "weight": 37.0,
+      "active intensity": 1,
+      "day": 5,
+      "hours": 5,
+      "sumw": 0
+  },
+  {
+      "age": 18,
+      "sex": "หญิง",
+      "height": 158,
+      "weight": 56.0,
+      "active intensity": 2,
+      "day": 3,
+      "hours": 4,
+      "sumw": 15
+  },
+  {
+      "age": 17,
+      "sex": "หญิง",
+      "height": 165,
+      "weight": 49.0,
+      "active intensity": 3,
+      "day": 1,
+      "hours": 2,
+      "sumw": 7
+  },
+  {
+      "age": 18,
+      "sex": "ชาย",
+      "height": 165,
+      "weight": 49.0,
+      "active intensity": 3,
+      "day": 3,
+      "hours": 5,
+      "sumw": 6
+  },
+  {
+      "age": 15,
+      "sex": "หญิง",
+      "height": 160,
+      "weight": 49.0,
+      "active intensity": 2,
+      "day": 2,
+      "hours": 2,
+      "sumw": 8
+  },
+  {
+      "age": 17,
+      "sex": "ชาย",
+      "height": 176,
+      "weight": 60.0,
+      "active intensity": 4,
+      "day": 6,
+      "hours": 8,
+      "sumw": 9
+  },
+  {
+      "age": 16,
+      "sex": "ชาย",
+      "height": 177,
+      "weight": 75.0,
+      "active intensity": 3,
+      "day": 5,
+      "hours": 2,
+      "sumw": 18
+  },
+  {
+      "age": 17,
+      "sex": "หญิง",
+      "height": 175,
+      "weight": 95.0,
+      "active intensity": 2,
+      "day": 3,
+      "hours": 4,
+      "sumw": 30
+  },
+  {
+      "age": 16,
+      "sex": "หญิง",
+      "height": 160,
+      "weight": 46.0,
+      "active intensity": 2,
+      "day": 7,
+      "hours": 6,
+      "sumw": 6
+  },
+  {
+      "age": 17,
+      "sex": "หญิง",
+      "height": 148,
+      "weight": 40.0,
+      "active intensity": 1,
+      "day": 2,
+      "hours": 5,
+      "sumw": 7
+  },
+  {
+      "age": 17,
+      "sex": "หญิง",
+      "height": 153,
+      "weight": 38.0,
+      "active intensity": 1,
+      "day": 3,
+      "hours": 6,
+      "sumw": 2
+  },
+  {
+      "age": 17,
+      "sex": "ชาย",
+      "height": 168,
+      "weight": 65.0,
+      "active intensity": 2,
+      "day": 0,
+      "hours": 6,
+      "sumw": 16
+  }
+]
