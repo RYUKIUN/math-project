@@ -1,11 +1,10 @@
-input_path = r"C:\Users\Admin\Documents\VScode\math project\new refined\data\data.json"
-output_path = r"C:\Users\Admin\Documents\VScode\math project\new refined\data\normalized_data.json"
-adaptor = r"C:\Users\Admin\Documents\VScode\math project\new refined\data\adaptor.json"
+input_path = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\data.json"
+output_path = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\normalized_data.json"
+adaptor = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\adaptor.json"
 
 import json
 import numpy as np
 
-# ---------- Functions ----------
 
 def sleeptime_per_week(day, hour):
     return 56 - ((day - 7) * (hour - 8))
@@ -37,12 +36,8 @@ def classify(weight, height, age, gender):
     else:
         return "Overweight"
 
-# ---------- Read Input ----------
-
 with open(input_path, "r", encoding="utf-8") as f:
     raw_data = json.load(f)
-
-# ---------- Compute Features ----------
 
 processed = []
 features_matrix = []
@@ -53,15 +48,14 @@ for entry in raw_data:
     age = float(entry["age"])
     weight = float(entry["weight"])
     height = float(entry["height"])
-    active_intensity = float(entry["active intensity"])  # 🔹 changed from multiplier
+    active_intensity = float(entry["active intensity"])
     day = float(entry["day"])
     hours = float(entry["hours"])
-    sumw = float(entry["sumw"])  # 🔹 new field
+    sumw = float(entry["sumw"]) 
 
     sleep = sleeptime_per_week(day, hours)
     bmi_class = classify(weight, height, age, sex_label)
 
-    # Include sumw in features
     features_matrix.append([age, weight, height, active_intensity, sleep, sumw])
 
     processed.append({
@@ -74,8 +68,6 @@ for entry in raw_data:
         "sumw": sumw,
         "class": bmi_class
     })
-
-# ---------- Standardize (excluding sex/class) ----------
 
 features_array = np.array(features_matrix)
 mean = features_array.mean(axis=0)
@@ -95,14 +87,9 @@ for entry in processed:
     }
     standardized_output.append(standardized_entry)
 
-# ---------- Save Output Data ----------
 
 with open(output_path, "w", encoding="utf-8") as f:
     json.dump(standardized_output, f, ensure_ascii=False, indent=2)
-
-# ---------- Save Adapter ----------
-
-# ---------- Save Adapter ----------
 
 feature_names = ["age", "weight", "height", "active_intensity", "sleep_per_week", "sumw"]
 
@@ -115,6 +102,5 @@ with open(adaptor, "w", encoding="utf-8") as f:
     json.dump(adapter, f, ensure_ascii=False, indent=2)
 
 
-print("✅ Done! Files created:")
-print(" - normalized_data.json") 
-print(" - adapter.json")
+print("create - normalized_data.json") 
+print("create - adapter.json")

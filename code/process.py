@@ -4,8 +4,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.model_selection import train_test_split
 
-data_path = r"C:\Users\Admin\Documents\VScode\math project\new refined\data\normalized_data.json"
-output_path = r"C:\Users\Admin\Documents\VScode\math project\new refined\data\bias_and_coef.json"
+data_path = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\normalized_data.json"
+output_path = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\bias_and_coef.json"
 
 def load_data(path):
     with open(path, 'r', encoding='utf-8') as f:
@@ -13,7 +13,6 @@ def load_data(path):
     
     X = []
     y = []
-    # New feature set from normalized dataset
     feature_names = ['sex', 'age', 'weight', 'height', 'active_intensity', 'sleep_per_week', 'sumw']
     class_map = {"Underweight": 0, "Normal": 1, "Overweight": 2}
     
@@ -23,7 +22,6 @@ def load_data(path):
     
     return np.array(X), np.array(y), class_map, feature_names
 
-# === Print confusion matrix ===
 def print_confusion_matrix(cm, labels):
     print("\nConfusion Matrix:")
     header = "\t" + "\t".join(labels)
@@ -33,7 +31,6 @@ def print_confusion_matrix(cm, labels):
         row_values = "\t".join(str(x) for x in row)
         print(f"{row_label}\t{row_values}")
 
-# === Train and evaluate model ===
 def train_and_evaluate(X, y, fraction, run_id, feature_names):
     size = int(len(X) * fraction)
     X_sub, y_sub = X[:size], y[:size]
@@ -51,7 +48,6 @@ def train_and_evaluate(X, y, fraction, run_id, feature_names):
     labels = ["Underweight", "Normal", "Overweight"]
     print_confusion_matrix(cm, labels)
 
-    # === Save model coefficients with feature names ===
     output = {
         "features": feature_names,
         "bias": model.intercept_.tolist(),
@@ -62,7 +58,6 @@ def train_and_evaluate(X, y, fraction, run_id, feature_names):
     
     return model
 
-# === Main process ===
 if __name__ == "__main__":
     X, y, class_map, feature_names = load_data(data_path)
     fractions = [0.25, 0.5, 0.75, 1.0]
@@ -70,15 +65,14 @@ if __name__ == "__main__":
     for i, frac in enumerate(fractions):
         train_and_evaluate(X, y, frac, i+1, feature_names)
 
-    # === Sample prediction ===
     sample_input = {
-        "sex": 1,                # already normalized
-        "age": 1.2,              # already normalized
-        "weight": 0.1,           # already normalized
-        "height": 0.3,           # already normalized
-        "active_intensity": -0.5,# already normalized
-        "sleep_per_week": 0.2,   # already normalized
-        "sumw": -1.0             # already normalized
+        "sex": 1,                
+        "age": 1.2,              
+        "weight": 0.1,           
+        "height": 0.3,           
+        "active_intensity": -0.5,
+        "sleep_per_week": 0.2,   
+        "sumw": -1.0             
     }
 
     normalized = [sample_input[feature] for feature in feature_names]
