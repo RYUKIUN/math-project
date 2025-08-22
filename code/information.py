@@ -6,6 +6,24 @@ from statsmodels.stats.outliers_influence import variance_inflation_factor
 
 data_path = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\normalized_data.json"
 
+# mean and std dictionaries for de-normalization
+mean_values = {
+    "age": 16.5,
+    "weight": 54.7425,
+    "height": 162.3,
+    "active_intensity": 2.1,
+    "sleep_per_week": 44.125,
+    "sumw": 11.175
+}
+std_values = {
+    "age": 1.024695,
+    "weight": 14.368575,
+    "height": 7.9975,
+    "active_intensity": 0.888819,
+    "sleep_per_week": 8.423739,
+    "sumw": 7.784239
+}
+
 def load_data(path):
     with open(path, 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -21,7 +39,18 @@ def load_data(path):
             item['sleep_per_week'],
             item['sumw']
         ])
-    return pd.DataFrame(X, columns=feature_names)
+    df = pd.DataFrame(X, columns=feature_names)
+
+    # convert weight & height back to raw values
+    weight_raw = df['weight'] * std_values['weight'] + mean_values['weight']
+    height_raw = df['height'] * std_values['height'] + mean_values['height']
+
+    # calculate BMI (kg/m²)
+    bmi = weight_raw / ((height_raw / 100) ** 2)
+
+    # add BMI back into dataframe
+    df['bmi_score'] = bmi
+    return df
 
 def compute_correlation(x, y):
     n = len(x)
@@ -50,7 +79,7 @@ def plot_correlation_matrix(df):
             y = numeric_df.iloc[:, j].tolist()
             corr_matrix[i, j] = compute_correlation(x, y)
     
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(9, 7))
     im = plt.imshow(corr_matrix, cmap='coolwarm', vmin=-1, vmax=1)
     plt.colorbar(im, fraction=0.046, pad=0.04)
     plt.xticks(range(n), columns, rotation=45, ha='right')
@@ -60,7 +89,7 @@ def plot_correlation_matrix(df):
         for j in range(n):
             plt.text(j, i, f"{corr_matrix[i, j]:.2f}", ha='center', va='center', color='black')
     
-    plt.title("Correlation Matrix")
+    plt.title("Correlation Matrix with BMI Score")
     plt.tight_layout()
     plt.show()
 
@@ -68,8 +97,7 @@ def plot_correlation_matrix(df):
 if __name__ == "__main__":
     df = load_data(data_path)
 
-    print("\n=== Correlation Matrix ===")
+    print("\n=== Correlation Matrix (with BMI) ===")
     print(df.corr())
 
     plot_correlation_matrix(df)
-

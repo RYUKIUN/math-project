@@ -1,11 +1,21 @@
+import json
+import numpy as np
+import pandas as pd
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+from sklearn.feature_selection import RFE
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import LabelEncoder
+
+# -----------------------
+# File paths
+# -----------------------
 input_path = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\data.json"
 output_path = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\normalized_data.json"
 adaptor = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\adaptor.json"
 
-import json
-import numpy as np
-
-
+# -----------------------
+# Helper functions
+# -----------------------
 def sleeptime_per_week(day, hour):
     return 56 - ((day - 7) * (hour - 8))
 
@@ -36,6 +46,9 @@ def classify(weight, height, age, gender):
     else:
         return "Overweight"
 
+# -----------------------
+# Load raw data
+# -----------------------
 with open(input_path, "r", encoding="utf-8") as f:
     raw_data = json.load(f)
 
@@ -69,6 +82,42 @@ for entry in raw_data:
         "class": bmi_class
     })
 
+# -----------------------
+# Feature Selection Analysis
+# -----------------------
+df = pd.DataFrame(processed)
+
+print("\n=== Correlation Matrix ===")
+corr_matrix = df.drop(columns=["class"]).corr()
+print(corr_matrix)
+
+# Find highly correlated pairs (>0.9)
+high_corr = [(f1, f2) for f1 in corr_matrix.columns for f2 in corr_matrix.columns 
+             if f1 != f2 and abs(corr_matrix.loc[f1, f2]) > 0.9]
+print("Highly correlated feature pairs:", high_corr)
+
+print("\n=== VIF Analysis ===")
+X = df[["age", "weight", "height", "active_intensity", "sleep_per_week", "sumw"]]
+vif_data = pd.DataFrame()
+vif_data["feature"] = X.columns
+vif_data["VIF"] = [variance_inflation_factor(X.values, i) for i in range(X.shape[1])]
+print(vif_data)
+
+print("\n=== RFE Feature Selection ===")
+y = df["class"]
+le = LabelEncoder()
+y_enc = le.fit_transform(y)
+
+model = LogisticRegression(max_iter=10000)
+rfe = RFE(model, n_features_to_select=3)
+rfe = rfe.fit(X, y_enc)
+
+for i, col in enumerate(X.columns):
+    print(f"{col}: {'Keep' if rfe.support_[i] else 'Drop'}")
+
+# -----------------------
+# Normalization
+# -----------------------
 features_array = np.array(features_matrix)
 mean = features_array.mean(axis=0)
 std = features_array.std(axis=0)
@@ -87,7 +136,6 @@ for entry in processed:
     }
     standardized_output.append(standardized_entry)
 
-
 with open(output_path, "w", encoding="utf-8") as f:
     json.dump(standardized_output, f, ensure_ascii=False, indent=2)
 
@@ -101,6 +149,5 @@ adapter = {
 with open(adaptor, "w", encoding="utf-8") as f:
     json.dump(adapter, f, ensure_ascii=False, indent=2)
 
-
-print("create - normalized_data.json") 
+print("\ncreate - normalized_data.json") 
 print("create - adapter.json")
