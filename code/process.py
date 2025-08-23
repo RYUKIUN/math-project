@@ -82,3 +82,4 @@ if __name__ == "__main__":
     pred_class = model.predict([normalized])[0]
     inv_class_map = {v: k for k, v in class_map.items()}
     print("Predicted class:", inv_class_map[pred_class])
+
