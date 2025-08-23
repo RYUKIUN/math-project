@@ -25,7 +25,7 @@
   th, td { padding: 8px; border-bottom: 1px solid #2a356f; vertical-align: top; }
   th { text-align: left; background: #151c40; }
   .center { text-align: center; }
-  .slider-row { display: grid; grid-template-columns: 220px 1fr 100px; gap: 12px; align-items: center; }
+  .slider-row input[type="range"]{ display: grid; grid-template-columns: 220px 1fr 100px; gap: 12px; align-items: center;width: 100%; }
   input[type="range"] { width: 100%; }
   .hidden { display: none; }
   .small { font-size: 12px; color: #9aa0c7; }
@@ -245,13 +245,12 @@
       return exps.map(v => v / s);
     }
   
-    function sleepPerWeekFrom(day, hours) {
-      const d = clamp(Number(day), 0, 7);
-      const h = clamp(Number(hours), 0, 12);
-      // Corrected calculation for sleep_per_week
-      const sleepHoursPerWeek = (d * 8) + ((7 - d) * h);
-      return sleepHoursPerWeek;
-    }
+    function sleepPerWeekFrom(day, hours){
+  const d = clamp(Number(day),0,7);
+  const h = clamp(Number(hours),0,12);
+  const sleepHoursPerWeek = (d * 8) + ((7 - d) * h);
+  return sleepHoursPerWeek;
+}
   
     function predict(state) {
       const sexNum = sexMap[state.sex];
@@ -383,51 +382,54 @@
       normBody.innerHTML = rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td class="mono">${r[2]}</td></tr>`).join('');
     }
   
-    function updateSuggestion(st, pred) {
-      // Snapshot current
-      curAI.textContent = st.active_intensity.toFixed(0);
-      curSleep.textContent = Math.round(st.sleep_per_week).toString();
-      curSumw.textContent = st.sumw.toString();
+    function updateSuggestion(st, pred){
+  // Snapshot current
+  curAI.textContent = st.active_intensity.toFixed(0);
+  curSleep.textContent = Math.round(st.sleep_per_week).toString();
+  curSumw.textContent = st.sumw.toString();
+
+  // Always attempt to find a delta, even if it doesn't meet the target
+  const found = searchEqualDelta(st, 0.7);
+
+  // If the current prediction is already good, show that.
+  if(pred.label === 'Normal' && pred.probs[1] >= 0.7){
+    suggestNote.innerHTML = `<span class="badge ok">ปัจจุบันอยู่ในระดับปกติ (≥0.7)</span>`;
+    sugAI.textContent = '—';
+    sugSleep.textContent = '—';
+    sugSumw.textContent = '—';
+    return;
+  }
   
-      if (pred.label === 'Normal' && pred.probs[1] >= 0.7) {
-        suggestNote.innerHTML = `<span class="badge ok">ปัจจุบันอยู่ในระดับปกติ (≥0.7)</span>`;
-        sugAI.textContent = '—';
-        sugSleep.textContent = '—';
-        sugSumw.textContent = '—';
-        return;
-      }
+  // Convert suggested z back to raw, clamp to valid ranges, round as specified
+  const base = {
+    aiZ: normalize(st.active_intensity,'active_intensity'),
+    slZ: normalize(st.sleep_per_week,'sleep_per_week'),
+    swZ: normalize(st.sumw,'sumw')
+  };
+
+  // If a valid delta was found, use it. Otherwise, assume a large delta to provide some suggestion.
+  const delta = found.ok ? found.delta : (pred.probs[1] < 0.7 ? 5.0 : -5.0); // Use a default large delta if not found
+
+  const aiRaw = clamp(Math.round(toRawFromZ(base.aiZ + delta, 'active_intensity')), 0, 4);
+  const slRaw = clamp(Math.round(toRawFromZ(base.slZ + delta, 'sleep_per_week')), 0, 84);
+  const swRaw = clamp(Math.round(toRawFromZ(base.swZ + delta, 'sumw')), 0, 30);
+
+  // Re-evaluate achieved probability after rounding to discrete domains
+  const stRounded = { ...st, active_intensity: aiRaw, sleep_per_week: slRaw, sumw: swRaw };
+  const predRounded = predict(stRounded);
+
+  sugAI.textContent = String(aiRaw);
+  sugSleep.textContent = String(slRaw);
+  sugSumw.textContent = String(swRaw);
+
+  const pTarget = 0.7;
+  const txt = (predRounded.probs[1] >= pTarget)
+    ? `<span class="badge ok">Suggested achieves Normal ≥ 0.7</span>`
+    : `<span class="badge bad">Rounded suggestion <em>does not</em> reach 0.7 (current: ${(predRounded.probs[1]*100).toFixed(1)}%)</span>`;
   
-      const found = searchEqualDelta(st, 0.7);
-      if (!found.ok) {
-        suggestNote.innerHTML = `<span class="badge warn">No adjustment possible to reach 0.7 within ±5 SD</span>`;
-        sugAI.textContent = '—';
-        sugSleep.textContent = '—';
-        sugSumw.textContent = '—';
-        return;
-      }
-  
-      const base = {
-        aiZ: normalize(st.active_intensity, 'active_intensity'),
-        slZ: normalize(st.sleep_per_week, 'sleep_per_week'),
-        swZ: normalize(st.sumw, 'sumw')
-      };
-      const aiRaw = clamp(Math.round(toRawFromZ(base.aiZ + found.delta, 'active_intensity')), 0, 4);
-      const slRaw = clamp(Math.round(toRawFromZ(base.slZ + found.delta, 'sleep_per_week')), 0, 84);
-      const swRaw = clamp(Math.round(toRawFromZ(base.swZ + found.delta, 'sumw')), 0, 30);
-  
-      const stRounded = { ...st, active_intensity: aiRaw, sleep_per_week: slRaw, sumw: swRaw };
-      const predRounded = predict(stRounded);
-  
-      sugAI.textContent = String(aiRaw);
-      sugSleep.textContent = String(slRaw);
-      sugSumw.textContent = String(swRaw);
-  
-      const pTarget = 0.7;
-      const txt = (predRounded.probs[1] >= pTarget)
-        ? `<span class="badge ok">Suggested achieves Normal ≥ 0.7</span>`
-        : `<span class="badge bad">Rounded suggestion <em>does not</em> reach 0.7 (current: ${(predRounded.probs[1] * 100).toFixed(1)}%)</span>`;
-      suggestNote.innerHTML = `${txt} <span class="small">(Δ ≈ ${found.delta.toFixed(2)} SD equally on 3 features)</span>`;
-    }
+  // Note now always shows a delta, even if it's a default one
+  suggestNote.innerHTML = `${txt} <span class="small">(Δ ≈ ${delta.toFixed(2)} SD equally on 3 features)</span>`;
+}
   
     function renderAll() {
       if (!state) { renderProbBars([0, 0, 0]); return; }
@@ -492,9 +494,9 @@
       state = { sex, age, height, weight, active_intensity, sleep_per_week, sumw: s };
   
       // Prep UI
-      adjustCard.classList.remove('hidden');
-      adjSleep.value = String(sleep_per_week);
-      adjSleepVal.textContent = String(sleep_per_week);
+adjustCard.classList.remove('hidden');
+adjSleep.value = String(sleep_per_week);
+adjSleepVal.textContent = String(sleep_per_week);
   
       renderAll();
     });
