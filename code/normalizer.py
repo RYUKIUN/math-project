@@ -12,6 +12,7 @@ from sklearn.preprocessing import LabelEncoder
 input_path = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\pseudo_data.json"
 output_path = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\normalized_data.json"
 adaptor = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\adaptor.json"
+inform_path = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\inform.json"
 
 # -----------------------
 # Helper functions
@@ -83,37 +84,61 @@ for entry in raw_data:
     })
 
 # -----------------------
+# Feature Selection Config
+# -----------------------
+selected_features = ['sex',"age", "active_intensity", "sleep_per_week", "sumw"]  # manual
+rfe_n_features = 3  # fixed number you want RFE to keep
+
+# -----------------------
 # Feature Selection Analysis
 # -----------------------
 df = pd.DataFrame(processed)
+inform = {}
 
-print("\n=== Correlation Matrix ===")
-corr_matrix = df.drop(columns=["class"]).corr()
-print(corr_matrix)
+# Correlation Matrix
+corr_matrix = df[selected_features].corr()
+inform["correlation_matrix"] = corr_matrix.round(4).to_dict()
 
-# Find highly correlated pairs (>0.9)
+# Highly correlated pairs
 high_corr = [(f1, f2) for f1 in corr_matrix.columns for f2 in corr_matrix.columns 
              if f1 != f2 and abs(corr_matrix.loc[f1, f2]) > 0.9]
-print("Highly correlated feature pairs:", high_corr)
+inform["highly_correlated_pairs"] = high_corr
 
-print("\n=== VIF Analysis ===")
-X = df[["age", "weight", "height", "active_intensity", "sleep_per_week", "sumw"]]
-vif_data = pd.DataFrame()
-vif_data["feature"] = X.columns
-vif_data["VIF"] = [variance_inflation_factor(X.values, i) for i in range(X.shape[1])]
-print(vif_data)
+# VIF Analysis (with safe handling)
+X = df[selected_features]
+vif_data = []
+for i in range(X.shape[1]):
+    try:
+        vif_value = variance_inflation_factor(X.values, i)
+    except Exception as e:
+        vif_value = None
+    vif_data.append({"feature": X.columns[i], "VIF": vif_value})
+inform["vif"] = vif_data
 
-print("\n=== RFE Feature Selection ===")
+# RFE Analysis
 y = df["class"]
 le = LabelEncoder()
 y_enc = le.fit_transform(y)
 
 model = LogisticRegression(max_iter=10000)
-rfe = RFE(model, n_features_to_select=5)
+rfe = RFE(model, n_features_to_select=rfe_n_features)
 rfe = rfe.fit(X, y_enc)
 
-for i, col in enumerate(X.columns):
-    print(f"{col}: {'Keep' if rfe.support_[i] else 'Drop'}")
+rfe_results = {col: ("Keep" if rfe.support_[i] else "Drop") for i, col in enumerate(X.columns)}
+inform["rfe_selection"] = rfe_results
+
+# Save inform.json
+with open(inform_path, "w", encoding="utf-8") as f:
+    json.dump(inform, f, ensure_ascii=False, indent=2)
+
+print("\n=== Correlation Matrix ===")
+print(corr_matrix)
+print("\nHighly correlated feature pairs:", high_corr)
+print("\n=== VIF Analysis ===")
+print(pd.DataFrame(vif_data))
+print("\n=== RFE Feature Selection ===")
+for feat, decision in rfe_results.items():
+    print(f"{feat}: {decision}")
 
 # -----------------------
 # Normalization
@@ -150,4 +175,5 @@ with open(adaptor, "w", encoding="utf-8") as f:
     json.dump(adapter, f, ensure_ascii=False, indent=2)
 
 print("\ncreate - normalized_data.json") 
-print("create - adapter.json")
+print("create - adapter.json") 
+print("create - inform.json") 

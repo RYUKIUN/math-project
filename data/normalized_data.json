@@ -5,7 +5,7 @@
     "weight": -0.365676,
     "height": 1.021066,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.945984,
+    "sleep_per_week": 0.962197,
     "sumw": -0.303338,
     "class": "Underweight"
   },
@@ -15,7 +15,7 @@
     "weight": -0.685689,
     "height": -0.027526,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": -1.567244,
     "class": "Underweight"
   },
@@ -25,7 +25,7 @@
     "weight": 1.324649,
     "height": 0.49677,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": 0.644592,
     "class": "Normal"
   },
@@ -35,7 +35,7 @@
     "weight": 1.874415,
     "height": -0.682895,
     "active_intensity": -1.134327,
-    "sleep_per_week": -2.172645,
+    "sleep_per_week": -2.20491,
     "sumw": 2.066487,
     "class": "Overweight"
   },
@@ -45,7 +45,7 @@
     "weight": -1.547263,
     "height": -1.338265,
     "active_intensity": 1.12304,
-    "sleep_per_week": 1.391502,
+    "sleep_per_week": 0.509753,
     "sumw": -1.409256,
     "class": "Underweight"
   },
@@ -55,7 +55,7 @@
     "weight": 0.151268,
     "height": -0.1586,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": 0.486604,
     "class": "Normal"
   },
@@ -65,7 +65,7 @@
     "weight": -0.242594,
     "height": 0.758918,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": -0.619314,
     "class": "Underweight"
   },
@@ -75,7 +75,7 @@
     "weight": 1.053869,
     "height": -0.027526,
     "active_intensity": -2.26301,
-    "sleep_per_week": -1.57862,
+    "sleep_per_week": -0.847578,
     "sumw": 1.434534,
     "class": "Overweight"
   },
@@ -85,7 +85,7 @@
     "weight": 1.021047,
     "height": -1.731487,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": 2.224476,
     "class": "Overweight"
   },
@@ -95,7 +95,7 @@
     "weight": -0.34106,
     "height": -2.255783,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": 0.644592,
     "class": "Normal"
   },
@@ -105,7 +105,7 @@
     "weight": 0.381021,
     "height": -0.551821,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.648972,
+    "sleep_per_week": 1.414641,
     "sumw": 0.328616,
     "class": "Normal"
   },
@@ -115,7 +115,7 @@
     "weight": -1.547263,
     "height": -1.469339,
     "active_intensity": 1.12304,
-    "sleep_per_week": 1.391502,
+    "sleep_per_week": 1.414641,
     "sumw": -1.725233,
     "class": "Underweight"
   },
@@ -125,7 +125,7 @@
     "weight": -0.79236,
     "height": -0.813969,
     "active_intensity": -0.005643,
-    "sleep_per_week": -1.281608,
+    "sleep_per_week": -1.300022,
     "sumw": 0.328616,
     "class": "Underweight"
   },
@@ -135,7 +135,7 @@
     "weight": 1.349265,
     "height": -1.076117,
     "active_intensity": -1.134327,
-    "sleep_per_week": -2.172645,
+    "sleep_per_week": -2.20491,
     "sumw": 1.434534,
     "class": "Overweight"
   },
@@ -145,7 +145,7 @@
     "weight": 0.922581,
     "height": -0.945043,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": 2.382464,
     "class": "Overweight"
   },
@@ -155,7 +155,7 @@
     "weight": 1.414909,
     "height": 0.365696,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": 1.592522,
     "class": "Overweight"
   },
@@ -165,7 +165,7 @@
     "weight": -0.283622,
     "height": -0.027526,
     "active_intensity": 1.12304,
-    "sleep_per_week": -0.83609,
+    "sleep_per_week": -0.847578,
     "sumw": 0.960569,
     "class": "Normal"
   },
@@ -175,7 +175,7 @@
     "weight": -0.332855,
     "height": 0.758918,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.054947,
+    "sleep_per_week": -0.395134,
     "sumw": 0.012639,
     "class": "Underweight"
   },
@@ -185,7 +185,7 @@
     "weight": -0.349266,
     "height": 1.021066,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.05731,
     "sumw": -0.777303,
     "class": "Underweight"
   },
@@ -195,7 +195,7 @@
     "weight": -0.103102,
     "height": 0.234622,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": 0.486604,
     "class": "Normal"
   },
@@ -205,7 +205,7 @@
     "weight": -0.931853,
     "height": 1.545362,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.05731,
     "sumw": -1.093279,
     "class": "Underweight"
   },
@@ -215,7 +215,7 @@
     "weight": 0.126651,
     "height": -0.1586,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": 0.328616,
     "class": "Normal"
   },
@@ -225,7 +225,7 @@
     "weight": 0.397432,
     "height": 0.103548,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": -0.461326,
     "class": "Normal"
   },
@@ -235,7 +235,7 @@
     "weight": -0.226184,
     "height": 0.627844,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": -1.725233,
     "class": "Underweight"
   },
@@ -245,7 +245,7 @@
     "weight": 0.307171,
     "height": 1.283214,
     "active_intensity": -1.134327,
-    "sleep_per_week": -1.57862,
+    "sleep_per_week": -1.601651,
     "sumw": -0.303338,
     "class": "Normal"
   },
@@ -255,7 +255,7 @@
     "weight": 0.520514,
     "height": 0.103548,
     "active_intensity": 1.12304,
-    "sleep_per_week": -0.83609,
+    "sleep_per_week": -0.847578,
     "sumw": -0.619314,
     "class": "Normal"
   },
@@ -265,7 +265,7 @@
     "weight": 1.759538,
     "height": -2.124709,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": 2.382464,
     "class": "Overweight"
   },
@@ -275,7 +275,7 @@
     "weight": 0.54513,
     "height": 0.49677,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": -0.303338,
     "class": "Normal"
   },
@@ -285,7 +285,7 @@
     "weight": 0.45487,
     "height": -0.551821,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": 0.960569,
     "class": "Normal"
   },
@@ -295,7 +295,7 @@
     "weight": 0.72565,
     "height": -0.813969,
     "active_intensity": -2.26301,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": 1.276546,
     "class": "Overweight"
   },
@@ -305,7 +305,7 @@
     "weight": -0.439526,
     "height": -0.551821,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.509753,
     "sumw": 0.644592,
     "class": "Normal"
   },
@@ -315,7 +315,7 @@
     "weight": 0.520514,
     "height": 0.103548,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": -0.145349,
     "class": "Normal"
   },
@@ -325,7 +325,7 @@
     "weight": -1.547263,
     "height": 1.15214,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.648972,
+    "sleep_per_week": -0.093505,
     "sumw": -0.777303,
     "class": "Underweight"
   },
@@ -335,7 +335,7 @@
     "weight": 0.528719,
     "height": -2.255783,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": 0.960569,
     "class": "Overweight"
   },
@@ -345,7 +345,7 @@
     "weight": -1.054935,
     "height": 2.200732,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": -0.395134,
     "sumw": -1.251268,
     "class": "Underweight"
   },
@@ -355,7 +355,7 @@
     "weight": -0.119513,
     "height": 0.627844,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": 0.012639,
     "class": "Normal"
   },
@@ -365,7 +365,7 @@
     "weight": -1.399565,
     "height": 0.49677,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": -0.395134,
     "sumw": -1.251268,
     "class": "Underweight"
   },
@@ -375,7 +375,7 @@
     "weight": 1.012841,
     "height": -0.289674,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": 0.486604,
     "class": "Overweight"
   },
@@ -385,7 +385,7 @@
     "weight": 1.103101,
     "height": 0.49677,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": 0.486604,
     "class": "Normal"
   },
@@ -395,7 +395,7 @@
     "weight": -0.644662,
     "height": -1.207191,
     "active_intensity": 2.251723,
-    "sleep_per_week": 1.391502,
+    "sleep_per_week": 2.168715,
     "sumw": -0.935291,
     "class": "Normal"
   },
@@ -405,7 +405,7 @@
     "weight": -1.178017,
     "height": 1.15214,
     "active_intensity": -0.005643,
-    "sleep_per_week": 2.282539,
+    "sleep_per_week": 2.319529,
     "sumw": -1.883221,
     "class": "Underweight"
   },
@@ -415,7 +415,7 @@
     "weight": 0.397432,
     "height": 0.627844,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.093559,
+    "sleep_per_week": 0.660568,
     "sumw": 0.012639,
     "class": "Normal"
   },
@@ -425,7 +425,7 @@
     "weight": -0.767744,
     "height": 0.103548,
     "active_intensity": 1.12304,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.998393,
     "sumw": -0.777303,
     "class": "Underweight"
   },
@@ -435,7 +435,7 @@
     "weight": 0.471281,
     "height": -0.420747,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.83609,
+    "sleep_per_week": -0.093505,
     "sumw": 0.802581,
     "class": "Normal"
   },
@@ -445,7 +445,7 @@
     "weight": 0.118446,
     "height": -0.1586,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.395134,
     "sumw": 1.434534,
     "class": "Normal"
   },
@@ -455,7 +455,7 @@
     "weight": 0.897965,
     "height": -0.682895,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": 0.208124,
     "sumw": 1.118557,
     "class": "Overweight"
   },
@@ -465,7 +465,7 @@
     "weight": -1.547263,
     "height": -1.076117,
     "active_intensity": 1.12304,
-    "sleep_per_week": 1.391502,
+    "sleep_per_week": 0.509753,
     "sumw": -0.303338,
     "class": "Underweight"
   },
@@ -475,7 +475,7 @@
     "weight": 0.18409,
     "height": 0.365696,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.83609,
+    "sleep_per_week": -1.601651,
     "sumw": 0.012639,
     "class": "Normal"
   },
@@ -485,7 +485,7 @@
     "weight": 0.479486,
     "height": 0.365696,
     "active_intensity": 1.12304,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": 0.644592,
     "class": "Normal"
   },
@@ -495,7 +495,7 @@
     "weight": -1.547263,
     "height": -0.289674,
     "active_intensity": 1.12304,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.998393,
     "sumw": -0.619314,
     "class": "Underweight"
   },
@@ -505,7 +505,7 @@
     "weight": -1.547263,
     "height": 0.627844,
     "active_intensity": 1.12304,
-    "sleep_per_week": 2.282539,
+    "sleep_per_week": 2.319529,
     "sumw": -1.567244,
     "class": "Underweight"
   },
@@ -515,7 +515,7 @@
     "weight": -0.800566,
     "height": -0.1586,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": 0.486604,
     "class": "Underweight"
   },
@@ -525,7 +525,7 @@
     "weight": 0.405637,
     "height": 0.103548,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.811383,
     "sumw": 0.486604,
     "class": "Normal"
   },
@@ -535,7 +535,7 @@
     "weight": -0.95647,
     "height": 0.49677,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.945984,
+    "sleep_per_week": 0.962197,
     "sumw": -0.619314,
     "class": "Underweight"
   },
@@ -545,7 +545,7 @@
     "weight": 1.135923,
     "height": 0.49677,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": -0.303338,
     "class": "Normal"
   },
@@ -555,7 +555,7 @@
     "weight": 0.372815,
     "height": -1.076117,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": 0.960569,
     "class": "Overweight"
   },
@@ -565,7 +565,7 @@
     "weight": 0.832321,
     "height": 0.889992,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": 0.802581,
     "class": "Normal"
   },
@@ -575,7 +575,7 @@
     "weight": 0.052802,
     "height": -0.289674,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": 0.208124,
     "sumw": 0.328616,
     "class": "Normal"
   },
@@ -585,7 +585,7 @@
     "weight": -1.268277,
     "height": 1.283214,
     "active_intensity": 1.12304,
-    "sleep_per_week": 1.391502,
+    "sleep_per_week": 1.414641,
     "sumw": -1.409256,
     "class": "Underweight"
   },
@@ -595,7 +595,7 @@
     "weight": -0.61184,
     "height": 1.545362,
     "active_intensity": 2.251723,
-    "sleep_per_week": 2.282539,
+    "sleep_per_week": 2.319529,
     "sumw": -1.093279,
     "class": "Underweight"
   },
@@ -605,7 +605,7 @@
     "weight": -0.234389,
     "height": -0.551821,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": -0.461326,
     "class": "Normal"
   },
@@ -615,7 +615,7 @@
     "weight": -0.7021,
     "height": -0.682895,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.509753,
     "sumw": -0.777303,
     "class": "Underweight"
   },
@@ -625,7 +625,7 @@
     "weight": 1.037458,
     "height": -0.289674,
     "active_intensity": -1.134327,
-    "sleep_per_week": -1.281608,
+    "sleep_per_week": -1.300022,
     "sumw": 1.118557,
     "class": "Overweight"
   },
@@ -635,7 +635,7 @@
     "weight": -1.547263,
     "height": -0.289674,
     "active_intensity": 1.12304,
-    "sleep_per_week": 2.282539,
+    "sleep_per_week": 2.319529,
     "sumw": -0.935291,
     "class": "Underweight"
   },
@@ -645,7 +645,7 @@
     "weight": 1.529785,
     "height": -0.420747,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": 1.434534,
     "class": "Overweight"
   },
@@ -655,7 +655,7 @@
     "weight": -1.547263,
     "height": 0.234622,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.648972,
+    "sleep_per_week": -0.093505,
     "sumw": -1.567244,
     "class": "Underweight"
   },
@@ -665,7 +665,7 @@
     "weight": -0.652868,
     "height": -0.551821,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.509753,
     "sumw": -0.303338,
     "class": "Underweight"
   },
@@ -675,7 +675,7 @@
     "weight": 1.037458,
     "height": -0.551821,
     "active_intensity": -2.26301,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": 0.170627,
     "class": "Overweight"
   },
@@ -685,7 +685,7 @@
     "weight": -1.153401,
     "height": -0.551821,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": -1.409256,
     "class": "Underweight"
   },
@@ -695,7 +695,7 @@
     "weight": 3.523713,
     "height": 1.80751,
     "active_intensity": -1.134327,
-    "sleep_per_week": -1.57862,
+    "sleep_per_week": -0.847578,
     "sumw": 1.750511,
     "class": "Overweight"
   },
@@ -705,7 +705,7 @@
     "weight": -0.890826,
     "height": 0.103548,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.054947,
+    "sleep_per_week": -0.395134,
     "sumw": -1.567244,
     "class": "Underweight"
   },
@@ -715,7 +715,7 @@
     "weight": -1.325716,
     "height": -0.027526,
     "active_intensity": -0.005643,
-    "sleep_per_week": 1.837021,
+    "sleep_per_week": 1.565456,
     "sumw": -1.409256,
     "class": "Underweight"
   },
@@ -725,7 +725,7 @@
     "weight": 0.118446,
     "height": 0.234622,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 1.414641,
     "sumw": 0.328616,
     "class": "Normal"
   },
@@ -735,7 +735,7 @@
     "weight": 1.2508,
     "height": -0.420747,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": 0.960569,
     "class": "Overweight"
   },
@@ -745,7 +745,7 @@
     "weight": 0.668212,
     "height": -1.600413,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.395134,
     "sumw": 1.118557,
     "class": "Overweight"
   },
@@ -755,7 +755,7 @@
     "weight": -1.49803,
     "height": -0.289674,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.208124,
     "sumw": -1.409256,
     "class": "Underweight"
   },
@@ -765,7 +765,7 @@
     "weight": 1.004636,
     "height": -1.993635,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": 1.276546,
     "class": "Overweight"
   },
@@ -775,7 +775,7 @@
     "weight": 2.243661,
     "height": 0.234622,
     "active_intensity": -2.26301,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.395134,
     "sumw": 2.382464,
     "class": "Overweight"
   },
@@ -785,7 +785,7 @@
     "weight": -0.693895,
     "height": 1.021066,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": -1.567244,
     "class": "Underweight"
   },
@@ -795,7 +795,7 @@
     "weight": -0.587224,
     "height": 0.627844,
     "active_intensity": 1.12304,
-    "sleep_per_week": -0.093559,
+    "sleep_per_week": -0.093505,
     "sumw": -0.777303,
     "class": "Underweight"
   },
@@ -805,7 +805,7 @@
     "weight": 1.406703,
     "height": 0.627844,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": 0.509753,
     "sumw": 0.644592,
     "class": "Normal"
   },
@@ -815,7 +815,7 @@
     "weight": 0.36461,
     "height": 1.938584,
     "active_intensity": 1.12304,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": -0.303338,
     "class": "Normal"
   },
@@ -825,7 +825,7 @@
     "weight": 1.357471,
     "height": -0.027526,
     "active_intensity": -1.134327,
-    "sleep_per_week": -1.57862,
+    "sleep_per_week": -1.601651,
     "sumw": 0.644592,
     "class": "Overweight"
   },
@@ -835,7 +835,7 @@
     "weight": -0.021047,
     "height": 1.283214,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": -0.461326,
     "class": "Underweight"
   },
@@ -845,7 +845,7 @@
     "weight": 1.242594,
     "height": -0.027526,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": 0.509753,
     "sumw": 0.328616,
     "class": "Overweight"
   },
@@ -855,7 +855,7 @@
     "weight": -0.349266,
     "height": -1.469339,
     "active_intensity": 1.12304,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": 0.328616,
     "class": "Normal"
   },
@@ -865,7 +865,7 @@
     "weight": 0.077419,
     "height": -0.551821,
     "active_intensity": -1.134327,
-    "sleep_per_week": -1.57862,
+    "sleep_per_week": -1.601651,
     "sumw": 0.486604,
     "class": "Normal"
   },
@@ -875,7 +875,7 @@
     "weight": 1.300032,
     "height": -1.076117,
     "active_intensity": -1.134327,
-    "sleep_per_week": -2.172645,
+    "sleep_per_week": -1.300022,
     "sumw": 2.066487,
     "class": "Overweight"
   },
@@ -885,7 +885,7 @@
     "weight": 0.479486,
     "height": -0.945043,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": 0.012639,
     "class": "Overweight"
   },
@@ -895,7 +895,7 @@
     "weight": 0.028186,
     "height": -0.289674,
     "active_intensity": -0.005643,
-    "sleep_per_week": -1.57862,
+    "sleep_per_week": -1.601651,
     "sumw": 0.486604,
     "class": "Normal"
   },
@@ -905,7 +905,7 @@
     "weight": -0.012842,
     "height": 0.365696,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": 0.802581,
     "class": "Normal"
   },
@@ -915,7 +915,7 @@
     "weight": -1.465208,
     "height": -0.289674,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": -0.395134,
     "sumw": -1.409256,
     "class": "Underweight"
   },
@@ -925,7 +925,7 @@
     "weight": 0.331788,
     "height": 0.758918,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": 0.644592,
     "class": "Normal"
   },
@@ -935,7 +935,7 @@
     "weight": -0.808771,
     "height": -1.731487,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.509753,
     "sumw": -0.461326,
     "class": "Normal"
   },
@@ -945,7 +945,7 @@
     "weight": 0.947198,
     "height": -1.207191,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.811383,
     "sumw": 1.118557,
     "class": "Overweight"
   },
@@ -955,7 +955,7 @@
     "weight": 1.111307,
     "height": -1.469339,
     "active_intensity": -2.26301,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": 1.434534,
     "class": "Overweight"
   },
@@ -965,7 +965,7 @@
     "weight": 1.97288,
     "height": -0.027526,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": 0.802581,
     "class": "Overweight"
   },
@@ -975,7 +975,7 @@
     "weight": 0.093829,
     "height": 0.889992,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.509753,
     "sumw": -0.145349,
     "class": "Normal"
   },
@@ -985,7 +985,7 @@
     "weight": -0.217978,
     "height": 0.49677,
     "active_intensity": 1.12304,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -1.300022,
     "sumw": -0.303338,
     "class": "Normal"
   },
@@ -995,7 +995,7 @@
     "weight": -0.981086,
     "height": -1.469339,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": -0.777303,
     "class": "Underweight"
   },
@@ -1005,7 +1005,7 @@
     "weight": -0.710306,
     "height": 1.938584,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.509753,
     "sumw": -1.725233,
     "class": "Underweight"
   },
@@ -1015,7 +1015,7 @@
     "weight": -1.547263,
     "height": -0.551821,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": -1.251268,
     "class": "Underweight"
   },
@@ -1025,7 +1025,7 @@
     "weight": 1.759538,
     "height": -0.420747,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": 1.592522,
     "class": "Overweight"
   },
@@ -1035,7 +1035,7 @@
     "weight": -1.13699,
     "height": -1.862561,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": -0.935291,
     "class": "Underweight"
   },
@@ -1045,7 +1045,7 @@
     "weight": -1.547263,
     "height": 2.593954,
     "active_intensity": 1.12304,
-    "sleep_per_week": 2.282539,
+    "sleep_per_week": 1.716271,
     "sumw": -1.567244,
     "class": "Underweight"
   },
@@ -1055,7 +1055,7 @@
     "weight": 0.290761,
     "height": -0.027526,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": -0.145349,
     "class": "Normal"
   },
@@ -1065,7 +1065,7 @@
     "weight": 1.365676,
     "height": 0.889992,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": 0.960569,
     "class": "Overweight"
   },
@@ -1075,7 +1075,7 @@
     "weight": -0.021047,
     "height": -0.1586,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": -0.461326,
     "class": "Normal"
   },
@@ -1085,7 +1085,7 @@
     "weight": -0.61184,
     "height": -0.289674,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.509753,
     "sumw": -0.619314,
     "class": "Underweight"
   },
@@ -1095,7 +1095,7 @@
     "weight": -0.685689,
     "height": -0.551821,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.509753,
     "sumw": -0.777303,
     "class": "Underweight"
   },
@@ -1105,7 +1105,7 @@
     "weight": 0.413842,
     "height": -0.027526,
     "active_intensity": -1.134327,
-    "sleep_per_week": -2.172645,
+    "sleep_per_week": -2.20491,
     "sumw": 0.960569,
     "class": "Normal"
   },
@@ -1115,7 +1115,7 @@
     "weight": 1.464142,
     "height": 0.758918,
     "active_intensity": -0.005643,
-    "sleep_per_week": -1.281608,
+    "sleep_per_week": -1.300022,
     "sumw": -0.145349,
     "class": "Overweight"
   },
@@ -1125,7 +1125,7 @@
     "weight": -1.547263,
     "height": 1.15214,
     "active_intensity": 1.12304,
-    "sleep_per_week": 1.391502,
+    "sleep_per_week": 0.811383,
     "sumw": -0.935291,
     "class": "Underweight"
   },
@@ -1135,7 +1135,7 @@
     "weight": -0.759539,
     "height": 2.856102,
     "active_intensity": -0.005643,
-    "sleep_per_week": 1.391502,
+    "sleep_per_week": 0.811383,
     "sumw": -0.935291,
     "class": "Underweight"
   },
@@ -1145,7 +1145,7 @@
     "weight": 1.382087,
     "height": 0.365696,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": 0.328616,
     "class": "Overweight"
   },
@@ -1155,7 +1155,7 @@
     "weight": 0.36461,
     "height": -1.207191,
     "active_intensity": -0.005643,
-    "sleep_per_week": -1.57862,
+    "sleep_per_week": -1.601651,
     "sumw": 0.644592,
     "class": "Normal"
   },
@@ -1165,7 +1165,7 @@
     "weight": 1.004636,
     "height": -1.338265,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": 1.750511,
     "class": "Overweight"
   },
@@ -1175,7 +1175,7 @@
     "weight": 0.405637,
     "height": -0.813969,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": 1.592522,
     "class": "Normal"
   },
@@ -1185,7 +1185,7 @@
     "weight": 0.257939,
     "height": -1.469339,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": 0.328616,
     "class": "Overweight"
   },
@@ -1195,7 +1195,7 @@
     "weight": 0.99643,
     "height": 1.283214,
     "active_intensity": -1.134327,
-    "sleep_per_week": -1.281608,
+    "sleep_per_week": -2.20491,
     "sumw": 0.486604,
     "class": "Normal"
   },
@@ -1205,7 +1205,7 @@
     "weight": -0.529786,
     "height": -0.945043,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": -0.619314,
     "class": "Normal"
   },
@@ -1215,7 +1215,7 @@
     "weight": 2.555468,
     "height": -0.1586,
     "active_intensity": -2.26301,
-    "sleep_per_week": -2.172645,
+    "sleep_per_week": -1.300022,
     "sumw": 2.382464,
     "class": "Overweight"
   },
@@ -1225,7 +1225,7 @@
     "weight": 1.021047,
     "height": -0.945043,
     "active_intensity": -1.134327,
-    "sleep_per_week": -2.172645,
+    "sleep_per_week": -2.20491,
     "sumw": 1.434534,
     "class": "Overweight"
   },
@@ -1235,7 +1235,7 @@
     "weight": -0.718511,
     "height": -0.813969,
     "active_intensity": -0.005643,
-    "sleep_per_week": 1.391502,
+    "sleep_per_week": 1.414641,
     "sumw": -0.145349,
     "class": "Normal"
   },
@@ -1245,7 +1245,7 @@
     "weight": -1.547263,
     "height": -1.338265,
     "active_intensity": 1.12304,
-    "sleep_per_week": 1.985527,
+    "sleep_per_week": 2.621158,
     "sumw": -0.619314,
     "class": "Underweight"
   },
@@ -1255,7 +1255,7 @@
     "weight": -1.40777,
     "height": -1.731487,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": -0.935291,
     "class": "Underweight"
   },
@@ -1265,7 +1265,7 @@
     "weight": -0.053869,
     "height": -1.207191,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.962197,
     "sumw": -0.303338,
     "class": "Normal"
   },
@@ -1275,7 +1275,7 @@
     "weight": 0.266144,
     "height": -0.289674,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.83609,
+    "sleep_per_week": -0.847578,
     "sumw": -0.145349,
     "class": "Normal"
   },
@@ -1285,7 +1285,7 @@
     "weight": -1.169812,
     "height": 0.365696,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.05731,
     "sumw": 0.012639,
     "class": "Underweight"
   },
@@ -1295,7 +1295,7 @@
     "weight": -0.907237,
     "height": -0.813969,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.509753,
     "sumw": 0.644592,
     "class": "Underweight"
   },
@@ -1305,7 +1305,7 @@
     "weight": -1.202634,
     "height": 0.758918,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.945984,
+    "sleep_per_week": 0.962197,
     "sumw": -1.251268,
     "class": "Underweight"
   },
@@ -1315,7 +1315,7 @@
     "weight": 0.783088,
     "height": 0.49677,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.054947,
+    "sleep_per_week": 0.509753,
     "sumw": 0.012639,
     "class": "Normal"
   },
@@ -1325,7 +1325,7 @@
     "weight": -1.547263,
     "height": -0.945043,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.093559,
+    "sleep_per_week": -0.847578,
     "sumw": -0.935291,
     "class": "Underweight"
   },
@@ -1335,7 +1335,7 @@
     "weight": -1.169812,
     "height": 2.069658,
     "active_intensity": 2.251723,
-    "sleep_per_week": 1.391502,
+    "sleep_per_week": 0.811383,
     "sumw": -1.883221,
     "class": "Underweight"
   },
@@ -1345,7 +1345,7 @@
     "weight": 0.684623,
     "height": 1.021066,
     "active_intensity": -0.005643,
-    "sleep_per_week": -1.57862,
+    "sleep_per_week": -1.601651,
     "sumw": -0.145349,
     "class": "Normal"
   },
@@ -1355,7 +1355,7 @@
     "weight": -0.078485,
     "height": -1.731487,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": 0.328616,
     "class": "Normal"
   },
@@ -1365,7 +1365,7 @@
     "weight": 0.922581,
     "height": -0.682895,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": 0.644592,
     "class": "Overweight"
   },
@@ -1375,7 +1375,7 @@
     "weight": 1.062074,
     "height": 0.49677,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 1.414641,
     "sumw": 1.434534,
     "class": "Overweight"
   },
@@ -1385,7 +1385,7 @@
     "weight": -1.547263,
     "height": -0.027526,
     "active_intensity": 2.251723,
-    "sleep_per_week": 1.985527,
+    "sleep_per_week": 1.716271,
     "sumw": -0.777303,
     "class": "Underweight"
   },
@@ -1395,7 +1395,7 @@
     "weight": 0.011775,
     "height": -1.207191,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": 0.486604,
     "class": "Normal"
   },
@@ -1405,7 +1405,7 @@
     "weight": 0.282555,
     "height": -0.420747,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": -1.093279,
     "class": "Normal"
   },
@@ -1415,7 +1415,7 @@
     "weight": 0.569746,
     "height": -0.420747,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": 0.05731,
     "sumw": 0.328616,
     "class": "Normal"
   },
@@ -1425,7 +1425,7 @@
     "weight": -1.547263,
     "height": -1.993635,
     "active_intensity": 1.12304,
-    "sleep_per_week": 1.688515,
+    "sleep_per_week": 1.716271,
     "sumw": -0.935291,
     "class": "Underweight"
   },
@@ -1435,7 +1435,7 @@
     "weight": 0.643595,
     "height": -1.469339,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": 1.118557,
     "class": "Overweight"
   },
@@ -1445,7 +1445,7 @@
     "weight": 0.290761,
     "height": 0.234622,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": 0.644592,
     "class": "Normal"
   },
@@ -1455,7 +1455,7 @@
     "weight": -0.529786,
     "height": 0.49677,
     "active_intensity": 1.12304,
-    "sleep_per_week": 1.391502,
+    "sleep_per_week": 1.867085,
     "sumw": -0.935291,
     "class": "Underweight"
   },
@@ -1465,7 +1465,7 @@
     "weight": -0.882621,
     "height": 0.758918,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": -1.093279,
     "class": "Underweight"
   },
@@ -1475,7 +1475,7 @@
     "weight": 0.717445,
     "height": 2.46288,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": -0.145349,
     "class": "Normal"
   },
@@ -1485,7 +1485,7 @@
     "weight": -0.546197,
     "height": 0.758918,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": -0.777303,
     "class": "Underweight"
   },
@@ -1495,7 +1495,7 @@
     "weight": 0.553335,
     "height": 0.627844,
     "active_intensity": -0.005643,
-    "sleep_per_week": -1.57862,
+    "sleep_per_week": -1.601651,
     "sumw": 1.908499,
     "class": "Normal"
   },
@@ -1505,7 +1505,7 @@
     "weight": -1.547263,
     "height": 0.365696,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": -0.777303,
     "class": "Underweight"
   },
@@ -1515,7 +1515,7 @@
     "weight": 0.955403,
     "height": -0.1586,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": 0.170627,
     "class": "Overweight"
   },
@@ -1525,7 +1525,7 @@
     "weight": -0.472347,
     "height": 0.889992,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.945984,
+    "sleep_per_week": 0.811383,
     "sumw": 0.012639,
     "class": "Underweight"
   },
@@ -1535,7 +1535,7 @@
     "weight": 0.003569,
     "height": -0.289674,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": 0.486604,
     "class": "Normal"
   },
@@ -1545,7 +1545,7 @@
     "weight": -0.406704,
     "height": -1.338265,
     "active_intensity": -0.005643,
-    "sleep_per_week": -1.281608,
+    "sleep_per_week": -1.300022,
     "sumw": -0.935291,
     "class": "Normal"
   },
@@ -1555,7 +1555,7 @@
     "weight": -0.34106,
     "height": 0.889992,
     "active_intensity": -0.005643,
-    "sleep_per_week": -1.57862,
+    "sleep_per_week": -1.601651,
     "sumw": -1.251268,
     "class": "Underweight"
   },
@@ -1565,7 +1565,7 @@
     "weight": -0.587224,
     "height": -0.027526,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": -0.461326,
     "class": "Underweight"
   },
@@ -1575,7 +1575,7 @@
     "weight": -0.406704,
     "height": 0.758918,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": -0.935291,
     "class": "Underweight"
   },
@@ -1585,7 +1585,7 @@
     "weight": 0.011775,
     "height": -0.551821,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": 0.486604,
     "class": "Normal"
   },
@@ -1595,7 +1595,7 @@
     "weight": 0.528719,
     "height": -0.289674,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.093559,
+    "sleep_per_week": -0.093505,
     "sumw": 0.486604,
     "class": "Normal"
   },
@@ -1605,7 +1605,7 @@
     "weight": -0.529786,
     "height": -0.027526,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": -0.303338,
     "class": "Underweight"
   },
@@ -1615,7 +1615,7 @@
     "weight": -1.547263,
     "height": -0.945043,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": -1.093279,
     "class": "Underweight"
   },
@@ -1625,7 +1625,7 @@
     "weight": 0.143062,
     "height": 0.103548,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": -0.303338,
     "class": "Normal"
   },
@@ -1635,7 +1635,7 @@
     "weight": -1.547263,
     "height": -0.551821,
     "active_intensity": -0.005643,
-    "sleep_per_week": 1.391502,
+    "sleep_per_week": 0.660568,
     "sumw": -1.093279,
     "class": "Underweight"
   },
@@ -1645,7 +1645,7 @@
     "weight": -0.455937,
     "height": -0.420747,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": -0.461326,
     "class": "Normal"
   },
@@ -1655,7 +1655,7 @@
     "weight": -0.349266,
     "height": 1.021066,
     "active_intensity": -0.005643,
-    "sleep_per_week": 1.391502,
+    "sleep_per_week": 1.414641,
     "sumw": -1.251268,
     "class": "Underweight"
   },
@@ -1665,7 +1665,7 @@
     "weight": -0.291827,
     "height": 0.758918,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.05731,
     "sumw": 0.644592,
     "class": "Underweight"
   },
@@ -1675,7 +1675,7 @@
     "weight": -0.217978,
     "height": 0.889992,
     "active_intensity": 1.12304,
-    "sleep_per_week": -0.83609,
+    "sleep_per_week": -0.847578,
     "sumw": -1.251268,
     "class": "Underweight"
   },
@@ -1685,7 +1685,7 @@
     "weight": -0.833388,
     "height": 1.545362,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.500466,
+    "sleep_per_week": 0.208124,
     "sumw": -0.461326,
     "class": "Underweight"
   },
@@ -1695,7 +1695,7 @@
     "weight": 0.504103,
     "height": 1.15214,
     "active_intensity": -0.005643,
-    "sleep_per_week": -2.172645,
+    "sleep_per_week": -2.20491,
     "sumw": 1.276546,
     "class": "Normal"
   },
@@ -1705,7 +1705,7 @@
     "weight": -0.291827,
     "height": 0.49677,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": -1.567244,
     "class": "Underweight"
   },
@@ -1715,7 +1715,7 @@
     "weight": -1.547263,
     "height": 0.234622,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": -0.777303,
     "class": "Underweight"
   },
@@ -1725,7 +1725,7 @@
     "weight": -1.128784,
     "height": 1.15214,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.648972,
+    "sleep_per_week": 0.660568,
     "sumw": -0.935291,
     "class": "Underweight"
   },
@@ -1735,7 +1735,7 @@
     "weight": 0.315377,
     "height": 1.283214,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": -0.777303,
     "class": "Normal"
   },
@@ -1745,7 +1745,7 @@
     "weight": -1.219045,
     "height": 0.49677,
     "active_intensity": 1.12304,
-    "sleep_per_week": 1.391502,
+    "sleep_per_week": 1.414641,
     "sumw": -0.935291,
     "class": "Underweight"
   },
@@ -1755,7 +1755,7 @@
     "weight": 0.791294,
     "height": 0.234622,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": 0.328616,
     "class": "Normal"
   },
@@ -1765,7 +1765,7 @@
     "weight": 1.242594,
     "height": -0.682895,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": 1.118557,
     "class": "Overweight"
   },
@@ -1775,7 +1775,7 @@
     "weight": -0.275416,
     "height": -0.027526,
     "active_intensity": 1.12304,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.998393,
     "sumw": -0.935291,
     "class": "Normal"
   },
@@ -1785,7 +1785,7 @@
     "weight": -0.841593,
     "height": -0.551821,
     "active_intensity": 1.12304,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": -0.777303,
     "class": "Underweight"
   },
@@ -1795,7 +1795,7 @@
     "weight": -0.16054,
     "height": -0.945043,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": 1.118557,
     "class": "Normal"
   },
@@ -1805,7 +1805,7 @@
     "weight": 0.003569,
     "height": 0.627844,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.945984,
+    "sleep_per_week": 1.414641,
     "sumw": 0.802581,
     "class": "Normal"
   },
@@ -1815,7 +1815,7 @@
     "weight": -1.04673,
     "height": -2.124709,
     "active_intensity": 1.12304,
-    "sleep_per_week": -1.57862,
+    "sleep_per_week": -1.601651,
     "sumw": 0.328616,
     "class": "Normal"
   },
@@ -1825,7 +1825,7 @@
     "weight": -1.095963,
     "height": 1.80751,
     "active_intensity": 2.251723,
-    "sleep_per_week": -0.093559,
+    "sleep_per_week": -0.847578,
     "sumw": -0.619314,
     "class": "Underweight"
   },
@@ -1835,7 +1835,7 @@
     "weight": 0.889759,
     "height": 1.80751,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.395134,
     "sumw": -0.461326,
     "class": "Normal"
   },
@@ -1845,7 +1845,7 @@
     "weight": -1.424181,
     "height": -0.682895,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.648972,
+    "sleep_per_week": -0.093505,
     "sumw": -0.935291,
     "class": "Underweight"
   },
@@ -1855,7 +1855,7 @@
     "weight": -1.13699,
     "height": -0.682895,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.390571,
+    "sleep_per_week": -0.998393,
     "sumw": -0.935291,
     "class": "Underweight"
   },
@@ -1865,7 +1865,7 @@
     "weight": -1.547263,
     "height": -0.1586,
     "active_intensity": 2.251723,
-    "sleep_per_week": 0.648972,
+    "sleep_per_week": 0.660568,
     "sumw": -0.303338,
     "class": "Underweight"
   },
@@ -1875,7 +1875,7 @@
     "weight": 0.660006,
     "height": 0.49677,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.093559,
+    "sleep_per_week": -0.093505,
     "sumw": -0.461326,
     "class": "Normal"
   },
@@ -1885,7 +1885,7 @@
     "weight": 1.217978,
     "height": 1.283214,
     "active_intensity": -1.134327,
-    "sleep_per_week": -1.281608,
+    "sleep_per_week": -1.300022,
     "sumw": 0.960569,
     "class": "Normal"
   },
@@ -1895,7 +1895,7 @@
     "weight": 0.930787,
     "height": 2.069658,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.648972,
+    "sleep_per_week": 0.660568,
     "sumw": -0.145349,
     "class": "Normal"
   },
@@ -1905,7 +1905,7 @@
     "weight": 0.479486,
     "height": 0.889992,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": 0.170627,
     "class": "Normal"
   },
@@ -1915,7 +1915,7 @@
     "weight": 1.275416,
     "height": 0.103548,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.797478,
+    "sleep_per_week": 0.811383,
     "sumw": 0.328616,
     "class": "Overweight"
   },
@@ -1925,7 +1925,7 @@
     "weight": -0.168745,
     "height": 0.889992,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": -0.145349,
     "class": "Underweight"
   },
@@ -1935,7 +1935,7 @@
     "weight": 1.283622,
     "height": -0.813969,
     "active_intensity": -2.26301,
-    "sleep_per_week": -0.984596,
+    "sleep_per_week": -0.998393,
     "sumw": 0.960569,
     "class": "Overweight"
   },
@@ -1945,7 +1945,7 @@
     "weight": 0.63539,
     "height": 1.283214,
     "active_intensity": -0.005643,
-    "sleep_per_week": 0.203453,
+    "sleep_per_week": 0.208124,
     "sumw": -0.619314,
     "class": "Normal"
   },
@@ -1955,7 +1955,7 @@
     "weight": 0.897965,
     "height": -0.289674,
     "active_intensity": -0.005643,
-    "sleep_per_week": -0.093559,
+    "sleep_per_week": 0.660568,
     "sumw": 0.486604,
     "class": "Overweight"
   },
@@ -1965,7 +1965,7 @@
     "weight": 1.52158,
     "height": 0.234622,
     "active_intensity": -1.134327,
-    "sleep_per_week": -0.83609,
+    "sleep_per_week": -0.093505,
     "sumw": 1.276546,
     "class": "Overweight"
   },
@@ -1975,7 +1975,7 @@
     "weight": 0.225117,
     "height": -0.551821,
     "active_intensity": -0.005643,
-    "sleep_per_week": -1.57862,
+    "sleep_per_week": -1.601651,
     "sumw": 0.012639,
     "class": "Normal"
   },
@@ -1985,7 +1985,7 @@
     "weight": 1.029252,
     "height": 0.365696,
     "active_intensity": -1.134327,
-    "sleep_per_week": 0.054947,
+    "sleep_per_week": 0.509753,
     "sumw": 1.434534,
     "class": "Normal"
   },
@@ -1995,7 +1995,7 @@
     "weight": 1.652867,
     "height": 0.889992,
     "active_intensity": -0.005643,
-    "sleep_per_week": -2.172645,
+    "sleep_per_week": -1.300022,
     "sumw": 1.118557,
     "class": "Overweight"
   }

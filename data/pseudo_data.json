@@ -46,7 +46,7 @@
     "weight": 35.0,
     "active intensity": 4,
     "day": 1,
-    "hours": 8,
+    "hours": 7,
     "sumw": 6
   },
   {
@@ -76,7 +76,7 @@
     "weight": 66.7,
     "active intensity": 1,
     "day": 2,
-    "hours": 4,
+    "hours": 5,
     "sumw": 24
   },
   {
@@ -106,7 +106,7 @@
     "weight": 58.5,
     "active intensity": 4,
     "day": 2,
-    "hours": 7,
+    "hours": 8,
     "sumw": 17
   },
   {
@@ -176,7 +176,7 @@
     "weight": 49.8,
     "active intensity": 3,
     "day": 4,
-    "hours": 5,
+    "hours": 4,
     "sumw": 15
   },
   {
@@ -186,7 +186,7 @@
     "weight": 49.6,
     "active intensity": 3,
     "day": 4,
-    "hours": 6,
+    "hours": 5,
     "sumw": 10
   },
   {
@@ -206,7 +206,7 @@
     "weight": 42.5,
     "active intensity": 3,
     "day": 4,
-    "hours": 6,
+    "hours": 5,
     "sumw": 8
   },
   {
@@ -326,7 +326,7 @@
     "weight": 35.0,
     "active intensity": 4,
     "day": 2,
-    "hours": 7,
+    "hours": 6,
     "sumw": 10
   },
   {
@@ -346,7 +346,7 @@
     "weight": 41.0,
     "active intensity": 4,
     "day": 3,
-    "hours": 6,
+    "hours": 5,
     "sumw": 7
   },
   {
@@ -366,7 +366,7 @@
     "weight": 36.8,
     "active intensity": 4,
     "day": 3,
-    "hours": 6,
+    "hours": 5,
     "sumw": 7
   },
   {
@@ -396,7 +396,7 @@
     "weight": 46.0,
     "active intensity": 5,
     "day": 2,
-    "hours": 8,
+    "hours": 9,
     "sumw": 9
   },
   {
@@ -416,7 +416,7 @@
     "weight": 58.7,
     "active intensity": 3,
     "day": 2,
-    "hours": 6,
+    "hours": 7,
     "sumw": 15
   },
   {
@@ -426,7 +426,7 @@
     "weight": 44.5,
     "active intensity": 4,
     "day": 3,
-    "hours": 5,
+    "hours": 4,
     "sumw": 10
   },
   {
@@ -436,7 +436,7 @@
     "weight": 59.6,
     "active intensity": 3,
     "day": 2,
-    "hours": 5,
+    "hours": 6,
     "sumw": 20
   },
   {
@@ -446,7 +446,7 @@
     "weight": 55.3,
     "active intensity": 2,
     "day": 3,
-    "hours": 4,
+    "hours": 5,
     "sumw": 24
   },
   {
@@ -456,7 +456,7 @@
     "weight": 64.8,
     "active intensity": 2,
     "day": 3,
-    "hours": 5,
+    "hours": 6,
     "sumw": 22
   },
   {
@@ -466,7 +466,7 @@
     "weight": 35.0,
     "active intensity": 4,
     "day": 1,
-    "hours": 8,
+    "hours": 7,
     "sumw": 13
   },
   {
@@ -476,7 +476,7 @@
     "weight": 56.1,
     "active intensity": 3,
     "day": 2,
-    "hours": 5,
+    "hours": 4,
     "sumw": 15
   },
   {
@@ -496,7 +496,7 @@
     "weight": 35.0,
     "active intensity": 4,
     "day": 3,
-    "hours": 5,
+    "hours": 4,
     "sumw": 11
   },
   {
@@ -526,7 +526,7 @@
     "weight": 58.8,
     "active intensity": 2,
     "day": 5,
-    "hours": 4,
+    "hours": 6,
     "sumw": 18
   },
   {
@@ -576,7 +576,7 @@
     "weight": 54.5,
     "active intensity": 3,
     "day": 3,
-    "hours": 5,
+    "hours": 6,
     "sumw": 17
   },
   {
@@ -656,7 +656,7 @@
     "weight": 35.0,
     "active intensity": 4,
     "day": 2,
-    "hours": 7,
+    "hours": 6,
     "sumw": 5
   },
   {
@@ -696,7 +696,7 @@
     "weight": 96.8,
     "active intensity": 2,
     "day": 2,
-    "hours": 4,
+    "hours": 5,
     "sumw": 26
   },
   {
@@ -706,7 +706,7 @@
     "weight": 43.0,
     "active intensity": 4,
     "day": 4,
-    "hours": 5,
+    "hours": 4,
     "sumw": 5
   },
   {
@@ -716,7 +716,7 @@
     "weight": 37.7,
     "active intensity": 3,
     "day": 6,
-    "hours": 11,
+    "hours": 9,
     "sumw": 6
   },
   {
@@ -726,7 +726,7 @@
     "weight": 55.3,
     "active intensity": 4,
     "day": 1,
-    "hours": 7,
+    "hours": 8,
     "sumw": 17
   },
   {
@@ -746,7 +746,7 @@
     "weight": 62.0,
     "active intensity": 2,
     "day": 3,
-    "hours": 4,
+    "hours": 5,
     "sumw": 22
   },
   {
@@ -756,7 +756,7 @@
     "weight": 35.6,
     "active intensity": 4,
     "day": 5,
-    "hours": 5,
+    "hours": 4,
     "sumw": 6
   },
   {
@@ -776,7 +776,7 @@
     "weight": 81.2,
     "active intensity": 1,
     "day": 3,
-    "hours": 4,
+    "hours": 5,
     "sumw": 30
   },
   {
@@ -806,7 +806,7 @@
     "weight": 71.0,
     "active intensity": 3,
     "day": 4,
-    "hours": 4,
+    "hours": 6,
     "sumw": 19
   },
   {
@@ -846,7 +846,7 @@
     "weight": 69.0,
     "active intensity": 3,
     "day": 4,
-    "hours": 4,
+    "hours": 6,
     "sumw": 17
   },
   {
@@ -876,7 +876,7 @@
     "weight": 69.7,
     "active intensity": 2,
     "day": 1,
-    "hours": 4,
+    "hours": 5,
     "sumw": 28
   },
   {
@@ -916,7 +916,7 @@
     "weight": 36.0,
     "active intensity": 4,
     "day": 4,
-    "hours": 6,
+    "hours": 4,
     "sumw": 6
   },
   {
@@ -946,7 +946,7 @@
     "weight": 65.4,
     "active intensity": 2,
     "day": 5,
-    "hours": 4,
+    "hours": 6,
     "sumw": 22
   },
   {
@@ -986,7 +986,7 @@
     "weight": 51.2,
     "active intensity": 4,
     "day": 1,
-    "hours": 6,
+    "hours": 5,
     "sumw": 13
   },
   {
@@ -1046,7 +1046,7 @@
     "weight": 35.0,
     "active intensity": 4,
     "day": 5,
-    "hours": 11,
+    "hours": 9,
     "sumw": 5
   },
   {
@@ -1126,7 +1126,7 @@
     "weight": 35.0,
     "active intensity": 4,
     "day": 3,
-    "hours": 8,
+    "hours": 7,
     "sumw": 9
   },
   {
@@ -1136,7 +1136,7 @@
     "weight": 44.6,
     "active intensity": 3,
     "day": 3,
-    "hours": 8,
+    "hours": 7,
     "sumw": 9
   },
   {
@@ -1196,7 +1196,7 @@
     "weight": 66.0,
     "active intensity": 2,
     "day": 1,
-    "hours": 5,
+    "hours": 4,
     "sumw": 18
   },
   {
@@ -1216,7 +1216,7 @@
     "weight": 85.0,
     "active intensity": 1,
     "day": 1,
-    "hours": 4,
+    "hours": 5,
     "sumw": 30
   },
   {
@@ -1246,7 +1246,7 @@
     "weight": 35.0,
     "active intensity": 4,
     "day": 3,
-    "hours": 9,
+    "hours": 10,
     "sumw": 11
   },
   {
@@ -1266,7 +1266,7 @@
     "weight": 53.2,
     "active intensity": 3,
     "day": 4,
-    "hours": 6,
+    "hours": 7,
     "sumw": 13
   },
   {
@@ -1286,7 +1286,7 @@
     "weight": 39.6,
     "active intensity": 3,
     "day": 4,
-    "hours": 6,
+    "hours": 5,
     "sumw": 15
   },
   {
@@ -1296,7 +1296,7 @@
     "weight": 42.8,
     "active intensity": 4,
     "day": 5,
-    "hours": 6,
+    "hours": 5,
     "sumw": 19
   },
   {
@@ -1316,7 +1316,7 @@
     "weight": 63.4,
     "active intensity": 2,
     "day": 4,
-    "hours": 5,
+    "hours": 6,
     "sumw": 15
   },
   {
@@ -1326,7 +1326,7 @@
     "weight": 35.0,
     "active intensity": 3,
     "day": 2,
-    "hours": 6,
+    "hours": 5,
     "sumw": 9
   },
   {
@@ -1336,7 +1336,7 @@
     "weight": 39.6,
     "active intensity": 5,
     "day": 3,
-    "hours": 8,
+    "hours": 7,
     "sumw": 3
   },
   {
@@ -1376,7 +1376,7 @@
     "weight": 66.8,
     "active intensity": 2,
     "day": 1,
-    "hours": 7,
+    "hours": 8,
     "sumw": 24
   },
   {
@@ -1386,7 +1386,7 @@
     "weight": 35.0,
     "active intensity": 5,
     "day": 6,
-    "hours": 12,
+    "hours": 10,
     "sumw": 10
   },
   {
@@ -1416,7 +1416,7 @@
     "weight": 60.8,
     "active intensity": 2,
     "day": 4,
-    "hours": 4,
+    "hours": 5,
     "sumw": 17
   },
   {
@@ -1456,7 +1456,7 @@
     "weight": 47.4,
     "active intensity": 4,
     "day": 4,
-    "hours": 8,
+    "hours": 9,
     "sumw": 9
   },
   {
@@ -1526,7 +1526,7 @@
     "weight": 48.1,
     "active intensity": 4,
     "day": 6,
-    "hours": 5,
+    "hours": 4,
     "sumw": 15
   },
   {
@@ -1636,7 +1636,7 @@
     "weight": 35.0,
     "active intensity": 3,
     "day": 2,
-    "hours": 8,
+    "hours": 7,
     "sumw": 8
   },
   {
@@ -1666,7 +1666,7 @@
     "weight": 50.3,
     "active intensity": 2,
     "day": 4,
-    "hours": 6,
+    "hours": 5,
     "sumw": 19
   },
   {
@@ -1686,7 +1686,7 @@
     "weight": 43.7,
     "active intensity": 4,
     "day": 5,
-    "hours": 5,
+    "hours": 4,
     "sumw": 12
   },
   {
@@ -1776,7 +1776,7 @@
     "weight": 50.5,
     "active intensity": 4,
     "day": 3,
-    "hours": 5,
+    "hours": 4,
     "sumw": 9
   },
   {
@@ -1806,7 +1806,7 @@
     "weight": 53.9,
     "active intensity": 3,
     "day": 4,
-    "hours": 7,
+    "hours": 8,
     "sumw": 20
   },
   {
@@ -1826,7 +1826,7 @@
     "weight": 40.5,
     "active intensity": 5,
     "day": 2,
-    "hours": 6,
+    "hours": 5,
     "sumw": 11
   },
   {
@@ -1846,7 +1846,7 @@
     "weight": 36.5,
     "active intensity": 3,
     "day": 2,
-    "hours": 7,
+    "hours": 6,
     "sumw": 9
   },
   {
@@ -1856,7 +1856,7 @@
     "weight": 40.0,
     "active intensity": 3,
     "day": 3,
-    "hours": 5,
+    "hours": 4,
     "sumw": 9
   },
   {
@@ -1956,7 +1956,7 @@
     "weight": 64.8,
     "active intensity": 3,
     "day": 2,
-    "hours": 6,
+    "hours": 7,
     "sumw": 18
   },
   {
@@ -1966,7 +1966,7 @@
     "weight": 72.4,
     "active intensity": 2,
     "day": 2,
-    "hours": 5,
+    "hours": 6,
     "sumw": 23
   },
   {
@@ -1986,7 +1986,7 @@
     "weight": 66.4,
     "active intensity": 2,
     "day": 4,
-    "hours": 5,
+    "hours": 6,
     "sumw": 24
   },
   {
@@ -1996,7 +1996,7 @@
     "weight": 74.0,
     "active intensity": 3,
     "day": 1,
-    "hours": 4,
+    "hours": 5,
     "sumw": 22
   }
 ]

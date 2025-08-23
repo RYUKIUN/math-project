@@ -1,179 +1,121 @@
-import json
 import numpy as np
-import pandas as pd
-from statsmodels.stats.outliers_influence import variance_inflation_factor
-from sklearn.feature_selection import RFE
-from sklearn.linear_model import LogisticRegression
-from sklearn.preprocessing import LabelEncoder
+import json, os, random
 
-# -----------------------
-# File paths
-# -----------------------
-input_path = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\pseudo_data.json"
-output_path = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\normalized_data.json"
-adaptor = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\adaptor.json"
-inform_path = r"C:\Users\Admin\Documents\VScode\math project\bmi\data\inform.json"
+r_ai = -0.75
+r_sw = 0.84
+r_sl_bmi = -0.45 
 
-# -----------------------
-# Helper functions
-# -----------------------
-def sleeptime_per_week(day, hour):
-    return 56 - ((day - 7) * (hour - 8))
+def _standardize(x):
+    x = np.asarray(x)
+    return (x - x.mean()) / (x.std(ddof=0) + 1e-9)
 
-def encode_sex(sex):
-    return 0 if sex == "ชาย" else 1
+def generate_pseudo_json(
+    n_samples=500,
+    seed=42,
+    save_dir="output",
+    filename="pseudo_data.json"
+):
+    if seed is not None:
+        np.random.seed(seed); random.seed(seed)
 
-def classify(weight, height, age, gender):
-    height_m = height / 100
-    bmi = round(weight / (height_m ** 2), 2)
-    bmi_thresholds = {
-        'ช.': {
-            12: 21.9, 13: 22.6, 14: 23.3, 15: 23.9,
-            16: 24.6, 17: 25.1, 18: 25.7
-        },
-        'ญ.': {
-            12: 21.7, 13: 22.4, 14: 23.2, 15: 23.8,
-            16: 24.5, 17: 25.1, 18: 25.7
-        }
-    }
-    gender_key = 'ช.' if gender == "ชาย" else 'ญ.'
-    age = max(12, min(18, int(age)))
-    threshold = bmi_thresholds[gender_key][age]
+    os.makedirs(save_dir, exist_ok=True)
+    path = os.path.join(save_dir, filename)
+
+    data = []
+
+    # --- 1) Base independent vars: age, height, weight, sex ---
+    age = np.clip(np.rint(np.random.normal(16.5, 1.0, n_samples)), 13, 19).astype(int)
+    height = np.clip(np.rint(np.random.normal(162.3, 8.0, n_samples)), 145, 190).astype(int)
+    weight = np.clip(np.round(np.random.normal(54.74, 14.37, n_samples), 1), 35, 110)
+
+    sex = np.random.choice(["ชาย", "หญิง"], size=n_samples, p=[0.5, 0.5])
+
+    # BMI
+    bmi = weight / ((height/100.0) ** 2)
+
+    Zb = _standardize(bmi)
+    Za = _standardize(age)
+
+    # --- 2) Active intensity (1..5), target corr ≈ -0.6 with BMI ---
+    # latent normal with Corr(latent, BMI) ~= -0.6
     
-    if bmi < 18.5:
-        return "Underweight"
-    elif 18.5 <= bmi < threshold:
-        return "Normal"
-    else:
-        return "Overweight"
+    eps_ai = np.random.normal(0, 1, n_samples)
+    ai_latent = r_ai * Zb + np.sqrt(max(1 - r_ai**2, 1e-6)) * eps_ai
+    # center around ~3, scale a bit, then round & clamp to 1..5
+    ai_cont = 3 + 0.9 * ai_latent
+    active_intensity = np.clip(np.rint(ai_cont), 1, 5).astype(int)
 
-# -----------------------
-# Load raw data
-# -----------------------
-with open(input_path, "r", encoding="utf-8") as f:
-    raw_data = json.load(f)
+    # --- 3) sumw (0..30), target corr ≈ +0.6 with BMI ---
+    
+    eps_sw = np.random.normal(0, 1, n_samples)
+    sw_latent = r_sw * Zb + np.sqrt(max(1 - r_sw**2, 1e-6)) * eps_sw
+    # map to 0..30-ish then clamp & int
+    sw_cont = 15 + 6.5 * sw_latent  # center near middle, spread to use range
+    sumw = np.clip(np.rint(sw_cont), 0, 30).astype(int)
 
-processed = []
-features_matrix = []
+    # --- 4) Sleep per week via your formula:
+    #     sleep = 56 - (day - 7) * (hours - 8)
+    #     Target corr with BMI ≈ -0.5; keep a tiny negative age effect.
+     # main target
+    eps_sl = np.random.normal(0, 1, n_samples)
+    # combine BMI and small age effect (beta=-0.15), keep total variance 1
+    beta_age = -0.15
+    # make combined standardized driver
+    # first orthogonalize Za to Zb to avoid inflating correlation with BMI
+    Za_res = Za - (Za @ Zb) / (Zb @ Zb + 1e-9) * Zb
+    Za_res = Za_res / (Za_res.std(ddof=0) + 1e-9)
+    # allocate variance: r_sl_bmi^2 for BMI, beta_age^2 for age, rest for noise
+    var_left = max(1 - (r_sl_bmi**2 + beta_age**2), 1e-6)
+    sl_driver = r_sl_bmi * Zb + beta_age * Za_res + np.sqrt(var_left) * eps_sl
 
-for entry in raw_data:
-    sex_label = entry["sex"]
-    sex_val = encode_sex(sex_label)
-    age = float(entry["age"])
-    weight = float(entry["weight"])
-    height = float(entry["height"])
-    active_intensity = float(entry["active intensity"])
-    day = float(entry["day"])
-    hours = float(entry["hours"])
-    sumw = float(entry["sumw"]) 
+    # map driver to a *target* sleep (continuous), then back-solve hours/day
+    # aim overall mean≈44 and sd≈8 (close to your stats) before the formula quantization
+    sleep_target = 44 + 8 * sl_driver
+    # keep within feasible band
+    sleep_target = np.clip(sleep_target, 20, 80)
 
-    sleep = sleeptime_per_week(day, hours)
-    bmi_class = classify(weight, height, age, sex_label)
+    # Choose day in 1..6 (avoid 7 to prevent division by zero in formula)
+    day = np.random.randint(1, 7, size=n_samples)
 
-    features_matrix.append([age, weight, height, active_intensity, sleep, sumw])
+    # Back-solve hours (continuous), then round to integer and recompute exact sleep
+    # hours = 8 + (56 - sleep) / (day - 7)
+    hours_cont = 8 + (56 - sleep_target) / (day - 7)
+    # keep reasonable hours per day
+    hours = np.clip(np.rint(hours_cont), 4, 12).astype(int)
 
-    processed.append({
-        "sex": sex_val,
-        "age": age,
-        "weight": weight,
-        "height": height,
-        "active_intensity": active_intensity,
-        "sleep_per_week": sleep,
-        "sumw": sumw,
-        "class": bmi_class
-    })
+    # Recompute sleep (for correlation truth) – not included in JSON output
+    sleep_recomp = 56 - (day - 7) * (hours - 8)
 
-# -----------------------
-# Feature Selection Config
-# -----------------------
-selected_features = ['sex',"age","active_intensity", "sleep_per_week", "sumw"]  # manual
-rfe_n_features = 3  # fixed number you want RFE to keep
+    # --- 5) Build records in your exact JSON structure ---
+    for i in range(n_samples):
+        data.append({
+            "age": int(age[i]),
+            "sex": str(sex[i]),
+            "height": int(height[i]),
+            "weight": float(weight[i]),
+            "active intensity": int(active_intensity[i]),
+            "day": int(day[i]),
+            "hours": int(hours[i]),
+            "sumw": int(sumw[i])
+        })
 
-# -----------------------
-# Feature Selection Analysis
-# -----------------------
-df = pd.DataFrame(processed)
-inform = {}
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
 
-# Correlation Matrix
-corr_matrix = df[selected_features].corr()
-inform["correlation_matrix"] = corr_matrix.round(4).to_dict()
-
-# Highly correlated pairs
-high_corr = [(f1, f2) for f1 in corr_matrix.columns for f2 in corr_matrix.columns 
-             if f1 != f2 and abs(corr_matrix.loc[f1, f2]) > 0.9]
-inform["highly_correlated_pairs"] = high_corr
-
-# VIF Analysis (with safe handling)
-X = df[selected_features]
-vif_data = []
-for i in range(X.shape[1]):
     try:
-        vif_value = variance_inflation_factor(X.values, i)
-    except Exception as e:
-        vif_value = None
-    vif_data.append({"feature": X.columns[i], "VIF": vif_value})
-inform["vif"] = vif_data
+        import pandas as pd
+        df = pd.DataFrame({
+            "BMI": bmi,
+            "AI": active_intensity,
+            "SUMW": sumw,
+            "SLEEP": sleep_recomp
+        })
+        corr = df.corr(numeric_only=True).round(3)
+        print("Correlations (approx):\n", corr[["BMI"]])
+    except Exception:
+        pass
 
-# RFE Analysis
-y = df["class"]
-le = LabelEncoder()
-y_enc = le.fit_transform(y)
+    print(f"Saved to: {path}")
+    return data
 
-model = LogisticRegression(max_iter=10000)
-rfe = RFE(model, n_features_to_select=rfe_n_features)
-rfe = rfe.fit(X, y_enc)
-
-rfe_results = {col: ("Keep" if rfe.support_[i] else "Drop") for i, col in enumerate(X.columns)}
-inform["rfe_selection"] = rfe_results
-
-# Save inform.json
-with open(inform_path, "w", encoding="utf-8") as f:
-    json.dump(inform, f, ensure_ascii=False, indent=2)
-
-print("\n=== Correlation Matrix ===")
-print(corr_matrix)
-print("\nHighly correlated feature pairs:", high_corr)
-print("\n=== VIF Analysis ===")
-print(pd.DataFrame(vif_data))
-print("\n=== RFE Feature Selection ===")
-for feat, decision in rfe_results.items():
-    print(f"{feat}: {decision}")
-
-# -----------------------
-# Normalization
-# -----------------------
-features_array = np.array(features_matrix)
-mean = features_array.mean(axis=0)
-std = features_array.std(axis=0)
-
-standardized_output = []
-for entry in processed:
-    standardized_entry = {
-        "sex": entry["sex"],
-        "age": round((entry["age"] - mean[0]) / std[0], 6),
-        "weight": round((entry["weight"] - mean[1]) / std[1], 6),
-        "height": round((entry["height"] - mean[2]) / std[2], 6),
-        "active_intensity": round((entry["active_intensity"] - mean[3]) / std[3], 6),
-        "sleep_per_week": round((entry["sleep_per_week"] - mean[4]) / std[4], 6),
-        "sumw": round((entry["sumw"] - mean[5]) / std[5], 6),
-        "class": entry["class"]
-    }
-    standardized_output.append(standardized_entry)
-
-with open(output_path, "w", encoding="utf-8") as f:
-    json.dump(standardized_output, f, ensure_ascii=False, indent=2)
-
-feature_names = ["age", "weight", "height", "active_intensity", "sleep_per_week", "sumw"]
-
-adapter = {
-    "mean": {name: round(mean[i], 6) for i, name in enumerate(feature_names)},
-    "std": {name: round(std[i], 6) for i, name in enumerate(feature_names)}
-}
-
-with open(adaptor, "w", encoding="utf-8") as f:
-    json.dump(adapter, f, ensure_ascii=False, indent=2)
-
-print("\ncreate - normalized_data.json") 
-print("create - adapter.json") 
-print("create - inform.json") 
+generate_pseudo_json(n_samples=200, seed=73, save_dir=r"C:\Users\Admin\Documents\VScode\math project\bmi\data")

@@ -4,35 +4,35 @@
       "sex": 1.0,
       "age": 0.0111,
       "active_intensity": -0.051,
-      "sleep_per_week": -0.0816,
+      "sleep_per_week": -0.1054,
       "sumw": 0.013
     },
     "age": {
       "sex": 0.0111,
       "age": 1.0,
       "active_intensity": -0.0135,
-      "sleep_per_week": -0.1787,
+      "sleep_per_week": -0.1388,
       "sumw": 0.065
     },
     "active_intensity": {
       "sex": -0.051,
       "age": -0.0135,
       "active_intensity": 1.0,
-      "sleep_per_week": 0.4889,
+      "sleep_per_week": 0.3791,
       "sumw": -0.6276
     },
     "sleep_per_week": {
-      "sex": -0.0816,
-      "age": -0.1787,
-      "active_intensity": 0.4889,
+      "sex": -0.1054,
+      "age": -0.1388,
+      "active_intensity": 0.3791,
       "sleep_per_week": 1.0,
-      "sumw": -0.5759
+      "sumw": -0.4221
     },
     "sumw": {
       "sex": 0.013,
       "age": 0.065,
       "active_intensity": -0.6276,
-      "sleep_per_week": -0.5759,
+      "sleep_per_week": -0.4221,
       "sumw": 1.0
     }
   },
@@ -40,23 +40,23 @@
   "vif": [
     {
       "feature": "sex",
-      "VIF": 2.0608912005848836
+      "VIF": 2.065395576480497
     },
     {
       "feature": "age",
-      "VIF": 79.96723761910276
+      "VIF": 75.29836712065762
     },
     {
       "feature": "active_intensity",
-      "VIF": 21.16890818186519
+      "VIF": 20.425616806642306
     },
     {
       "feature": "sleep_per_week",
-      "VIF": 52.545459643439315
+      "VIF": 47.74583843907622
     },
     {
       "feature": "sumw",
-      "VIF": 10.48519481651461
+      "VIF": 10.169207036282767
     }
   ],
   "rfe_selection": {
