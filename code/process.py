@@ -13,7 +13,7 @@ def load_data(path):
     
     X = []
     y = []
-    feature_names =['sex','weight', 'height', 'active_intensity', 'sleep_per_week', 'sumw']
+    feature_names =['sex','active_intensity', 'sleep_per_week', 'sumw']
     class_map = {"Underweight": 0, "Normal": 1, "Overweight": 2}
     
     for item in data:

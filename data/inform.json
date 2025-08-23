@@ -1,0 +1,69 @@
+{
+  "correlation_matrix": {
+    "sex": {
+      "sex": 1.0,
+      "age": 0.0111,
+      "active_intensity": -0.051,
+      "sleep_per_week": -0.0816,
+      "sumw": 0.013
+    },
+    "age": {
+      "sex": 0.0111,
+      "age": 1.0,
+      "active_intensity": -0.0135,
+      "sleep_per_week": -0.1787,
+      "sumw": 0.065
+    },
+    "active_intensity": {
+      "sex": -0.051,
+      "age": -0.0135,
+      "active_intensity": 1.0,
+      "sleep_per_week": 0.4889,
+      "sumw": -0.6276
+    },
+    "sleep_per_week": {
+      "sex": -0.0816,
+      "age": -0.1787,
+      "active_intensity": 0.4889,
+      "sleep_per_week": 1.0,
+      "sumw": -0.5759
+    },
+    "sumw": {
+      "sex": 0.013,
+      "age": 0.065,
+      "active_intensity": -0.6276,
+      "sleep_per_week": -0.5759,
+      "sumw": 1.0
+    }
+  },
+  "highly_correlated_pairs": [],
+  "vif": [
+    {
+      "feature": "sex",
+      "VIF": 2.0608912005848836
+    },
+    {
+      "feature": "age",
+      "VIF": 79.96723761910276
+    },
+    {
+      "feature": "active_intensity",
+      "VIF": 21.16890818186519
+    },
+    {
+      "feature": "sleep_per_week",
+      "VIF": 52.545459643439315
+    },
+    {
+      "feature": "sumw",
+      "VIF": 10.48519481651461
+    }
+  ],
+  "rfe_selection": {
+    "sex": "Keep",
+    "age": "Drop",
+    "active_intensity": "Keep",
+    "sleep_per_week": "Drop",
+    "sumw": "Keep"
+  }
+}
